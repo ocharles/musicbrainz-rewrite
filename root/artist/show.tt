@@ -1,0 +1,15 @@
+[%- WRAPPER 'layout.tt' title=artist.name -%]
+
+<div class="entity_header artist_header">
+  <h1>
+    <a href="[% c.uri_for('/artist', artist.mbid) %]">[% artist.name %]</a>
+    [% artist.resolution ? "(${artist.resolution})" : '' -%]
+  </h1>
+  <div class="info_links">
+    <ul>
+      <li><a href="[% c.uri_for('releases') %]">Releases</a></li>
+    </ul>
+  </div>
+</div>
+
+[%- END -%]

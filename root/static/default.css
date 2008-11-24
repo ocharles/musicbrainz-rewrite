@@ -98,3 +98,41 @@ tr.searchresultsodd {
 tr.searchresultsodd {
     background: #eee;
 }
+
+.entity_header {
+    background: #F0EFFF url(/static/images/aicon_lg.png) no-repeat 7pt 7pt;
+    border: 1px solid black;
+}
+
+.entity_header h1 {
+    color: #777;
+    margin: 10pt 10pt 10pt 50px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15pt;
+}
+
+.entity_header h1 a {
+    text-decoration: none;
+    color: black;
+    font-size: 20pt;
+}
+
+.entity_header h1 a:hover {
+    text-decoration: underline;
+}
+
+.entity_header .info_links {
+    border-top: 1px solid black;
+    background: #ddd;
+    padding: 2pt 10pt;
+}
+
+.entity_header li {
+    display: inline;
+    list-style-type: none;
+}
+
+.artist_header {
+    background: #FOEFFF 
+}
