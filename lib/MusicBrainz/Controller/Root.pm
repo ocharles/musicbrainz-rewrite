@@ -2,12 +2,8 @@ package MusicBrainz::Controller::Root;
 
 use strict;
 use warnings;
-use parent 'Catalyst::Controller';
 
-#
-# Sets the actions in this controller to be registered with no prefix
-# so they function identically to actions created in MyApp.pm
-#
+use base 'Catalyst::Controller';
 __PACKAGE__->config->{namespace} = '';
 
 =head1 NAME
@@ -16,7 +12,7 @@ MusicBrainz::Controller::Root - Root Controller for MusicBrainz
 
 =head1 DESCRIPTION
 
-[enter your description here]
+Handle any generic pages such as the landing page
 
 =head1 METHODS
 
@@ -24,33 +20,40 @@ MusicBrainz::Controller::Root - Root Controller for MusicBrainz
 
 =head2 index
 
+Landing page, server at /
+
 =cut
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-
-    # Hello World
-    $c->response->body( $c->welcome_message );
+sub index :Path :Args(0)
+{
+    my ($self, $c) = @_;
 }
 
-sub default :Path {
+=head2 default
+
+Served if the URL could not be matched against anything else.
+Generally means 404.
+
+=cut
+
+sub default :Path
+{
     my ( $self, $c ) = @_;
     $c->response->body( 'Page not found' );
     $c->response->status(404);
-    
 }
 
 =head2 end
 
 Attempt to render a view, if needed.
 
-=cut 
+=cut
 
 sub end : ActionClass('RenderView') {}
 
 =head1 AUTHOR
 
-Catalyst developer
+Oliver Charles
 
 =head1 LICENSE
 
