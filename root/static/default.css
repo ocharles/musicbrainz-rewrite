@@ -1,0 +1,79 @@
+* { margin: 0; padding: 0; }
+
+body {
+    background: #DDDDDD url(/static/images/sidebar_bg.png) 150pt repeat-y;
+    font-size: 12.5px;
+    font-family: sans-serif;
+}
+
+p {
+    margin-bottom: 12pt;
+}
+
+.hide {
+    position: absolute;
+    left: -9001pt;       /* OVER 9000?! */
+}
+
+#content {
+    padding: 10pt;
+    margin-left: 150pt;
+    margin-top: 70pt;
+}
+
+#sidebar {
+    position: absolute;
+    top: 70pt;
+    width: 150pt;
+    left: 0;
+}
+
+#sidebar h3 {
+    background: #aaa;
+    padding: 4pt 5pt;
+    border-bottom: 1px solid black;
+}
+
+#sidebar li {
+    border-top: 1px solid black;
+}
+
+#sidebar li li {
+    border: none;
+}
+
+#sidebar_search {
+    padding: 10pt;
+    text-align: center;
+}
+
+#sidebar_search input,
+#sidebar_search select {
+    font-size: 14pt;
+    width: 90%;
+}
+
+#sidebar_search p {
+    margin-bottom: 2pt;
+}
+
+#sidebar_search .submit {
+    width: auto;
+    margin-top: 6pt;
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70pt;
+    background: #736DAB;
+    border-bottom: 1px solid black;
+}
+
+#header h1 {
+    color: #625C9A;
+    font-size: 70pt;
+    letter-spacing: -10pt;
+}

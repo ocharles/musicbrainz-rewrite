@@ -28,7 +28,12 @@ our $VERSION = '0.01';
 # with a external configuration file acting as an override for
 # local deployment.
 
-__PACKAGE__->config( name => 'MusicBrainz' );
+__PACKAGE__->config(
+    name => 'MusicBrainz',
+    'View::Default' => {
+        TEMPLATE_EXTENSION => '.tt',
+    }
+);
 
 # Start the application
 __PACKAGE__->setup();

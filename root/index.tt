@@ -1,0 +1,3 @@
+[%- WRAPPER 'layout.tt' title='Welcome to MusicBrainz!' -%]
+<h1>Welcome to MusicBrainz!</h1>
+[%- END -%]

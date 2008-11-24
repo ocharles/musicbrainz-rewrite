@@ -1,0 +1,21 @@
+<li>
+  <h3>Search</h3>
+  <form action="[% c.uri_for('/search/external') %]" method="get" id="sidebar_search">
+    <p>
+      <label for="id_query" class="hide">Search Query:</label>
+      <input type="text" name="query" id="id_query" />
+    </p>
+    <p>
+      <label for="id_type" class="hide">Entity Type:</label>
+      <select name="type" id="id_type">
+        <option value="artist">Artist</option>
+        <option value="label">Label</option>
+        <option value="release">Release</option>
+        <option value="track">Track</option>
+      </select>
+    </p>
+    <p>
+      <input type="submit" value="Search" class="submit" />
+    </p>
+  </form>
+</li>
