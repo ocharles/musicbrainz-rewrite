@@ -77,3 +77,24 @@ p {
     font-size: 70pt;
     letter-spacing: -10pt;
 }
+
+table.searchresults {
+    width: 100%;
+    border-collapse: collapse;
+}
+table.searchresults td
+{
+    padding: 2pt;
+}
+tr.searchresultsheader {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+tr.searchresultseven,
+tr.searchresultsodd {
+    border-bottom: 1px solid #aaa;
+}
+
+tr.searchresultsodd {
+    background: #eee;
+}

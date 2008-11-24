@@ -42,7 +42,7 @@ instance about the data received.
 
 =cut
 
-sub external_search
+sub external
 {
     my $self = shift;
     my ($query, $type, $offset, $per_page) = @_;
