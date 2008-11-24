@@ -13,6 +13,6 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->has_many(releases => 'MusicBrainz::Schema::Release');
+__PACKAGE__->has_many(releases => 'MusicBrainz::Schema::Release', 'artist');
 
 1;

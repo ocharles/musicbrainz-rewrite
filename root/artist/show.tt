@@ -12,4 +12,21 @@
   </div>
 </div>
 
+<h2>Releases</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    [%- FOR release IN artist.releases -%]
+    <tr>
+      <td><a href="[% c.uri_for('/release', release.mbid) %]">[% release.name %]</a></td>
+    </tr>
+    [%- END -%]
+  </tbody>
+</table>
+
 [%- END -%]
