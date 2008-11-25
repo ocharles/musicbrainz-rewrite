@@ -1,3 +1,4 @@
+[%- USE Duration -%]
 [%- WRAPPER 'layout.tt' title="${release.name} by ${release.artist.name}" -%]
 
 <div class="entity_header release_header">
@@ -21,7 +22,7 @@
       <td>[% loop.count %]</td>
       <td>[% track.name %]</td>
       <td>[% track.artist.name %]</td>
-      <td>[% track.length %]</td>
+      <td>[% Duration(track.length) %]</td>
     </tr>
     [%- END -%]
   </tbody>

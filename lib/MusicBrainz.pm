@@ -32,7 +32,8 @@ __PACKAGE__->config(
     name => 'MusicBrainz',
     'View::Default' => {
         TEMPLATE_EXTENSION => '.tt',
-    }
+        PLUGIN_BASE        => 'MusicBrainz::Plugin',
+    },
 );
 
 # Start the application
