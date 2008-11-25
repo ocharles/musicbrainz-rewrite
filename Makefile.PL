@@ -5,6 +5,12 @@ use inc::Module::Install;
 name 'MusicBrainz';
 all_from 'lib/MusicBrainz.pm';
 
+requires 'Data::Page';
+requires 'DBIx::Class';
+requires 'Catalyst::Authentication::Store::DBIx::Class';
+requires 'Catalyst::Model::DBIC::Schema';
+requires 'Readonly';
+
 requires 'Catalyst::Runtime' => '5.7014';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';

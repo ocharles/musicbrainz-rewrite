@@ -1,0 +1,4 @@
+<h3>[% c.user.name %]</h3>
+<ul>
+  <li><a href="[% c.uri_for('/user/logout') %]">Logout</a></li>
+</ul>
