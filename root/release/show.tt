@@ -27,6 +27,7 @@
   </tbody>
 </table>
 
+[%- IF release.meta.discids -%]
 <table class="discids">
   <thead>
     <tr>
@@ -43,7 +44,10 @@
   [%- END -%]
   </tbody>
 </table>
+[%- END -%]
 
+
+[%- IF release.release_events_rs.count -%]
 <table class="release_events">
   <thead>
     <tr>
@@ -60,7 +64,11 @@
     <tr>
       <td>[% event.releasedate %]</td>
       <td>[% event.country.name %]</td>
-      <td>[% event.label.name %]</td>
+      <td>
+        <a href="[% c.uri_for('/label', event.label.gid) %]">
+          [% event.label.name %]
+        </a>
+      </td>
       <td>[% event.catno %]</td>
       <td>[% event.barcode %]</td>
       <td>[% event.format_name %]</td>
@@ -68,6 +76,7 @@
   [%- END -%]
   </tbody>
 </table>
+[%- END -%]
 
 </div>
 

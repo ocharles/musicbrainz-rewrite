@@ -3,39 +3,6 @@
 [%- INCLUDE 'artist/header.tt' -%]
 
 <h2>Releases</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tracks</th>
-      <th>Disc IDs</th>
-      <th>PUIDs</th>
-      <th>Status</th>
-      <th>Language</th>
-      <th>First Release</th>
-      <th>Rating</th>
-      <th>Title</th>
-    </tr>
-  </thead>
-  <tbody>
-    [%- FOR release=releases -%]
-    <tr[%- ' class="odd"' IF (loop.count % 2 == 0) -%]>
-      <td>[% release.meta.tracks %]</td>
-      <td>[% release.meta.discids %]</td>
-      <td>[% release.meta.puids %]</td>
-      <td>[% release.release_status_name %]</td>
-      <td>
-        <acronym title="[% release.language.name %] / [% release.script.name %]">
-          [% release.language.name %]
-        </acronym>
-      </td>
-      <td>[% release.meta.firstreleasedate %]</td>
-      <td>-</td>
-      <td><a href="[% c.uri_for('/release', release.gid) %]">[% release.name %]</a></td>
-    </tr>
-    [%- END -%]
-  </tbody>
-</table>
-</div>
+[%- INCLUDE 'release/release_listing.tt' -%]
 
 [%- END -%]

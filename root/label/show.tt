@@ -1,0 +1,14 @@
+[%- WRAPPER 'layout.tt' title=label.name -%]
+
+<div class="entity_header label_header">
+  <div class="information">
+    <h1>
+      <a href="[% c.uri_for('/label', label.gid) %]">[% label.name %]</a>
+      [% "({$label.resolution})" IF label.resolution -%]
+    </h1>
+  </div>
+</div>
+
+[%- INCLUDE 'release/release_listing.tt' releases=label.releases -%]
+
+[%- END -%]
