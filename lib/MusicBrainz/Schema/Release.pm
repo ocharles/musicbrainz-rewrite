@@ -15,11 +15,14 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->belongs_to( artist   => 'MusicBrainz::Schema::Artist');
+__PACKAGE__->belongs_to(artist   => 'MusicBrainz::Schema::Artist');
+__PACKAGE__->belongs_to(language => 'MusicBrainz::Schema::Language', 'language');
+__PACKAGE__->belongs_to(script   => 'MusicBrainz::Schema::Script', 'script');
 
-__PACKAGE__->belongs_to( language => 'MusicBrainz::Schema::Language', 'language');
-__PACKAGE__->belongs_to( script   => 'MusicBrainz::Schema::Script', 'script');
-__PACKAGE__->has_one(    meta     => 'MusicBrainz::Schema::ReleaseMeta', 'id');
+__PACKAGE__->has_many(release_tocs => 'MusicBrainz::Schema::ReleaseCDToc', 'album');
+__PACKAGE__->many_to_many(disc_ids => 'release_tocs', 'disc_id');
+
+__PACKAGE__->has_one(meta => 'MusicBrainz::Schema::ReleaseMeta', 'id');
 
 __PACKAGE__->has_many(release_tracks => 'MusicBrainz::Schema::ReleaseTrack', 'album');
 __PACKAGE__->many_to_many(tracks => 'release_tracks', 'track');

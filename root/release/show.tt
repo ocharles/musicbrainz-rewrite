@@ -35,9 +35,10 @@
     </tr>
   </thead>
   <tbody>
-  [%- FOR discid IN release.discids -%]
+  [%- FOR discid IN release.disc_ids -%]
     <tr>
       <td>[% discid.discid %]</td>
+      <td>[% Duration(discid.duration) %]</td>
     </tr>
   [%- END -%]
   </tbody>
