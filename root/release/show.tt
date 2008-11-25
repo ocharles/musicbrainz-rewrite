@@ -44,6 +44,31 @@
   </tbody>
 </table>
 
+<table class="release_events">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Country</th>
+      <th>Label</th>
+      <th>Catalog Number</th>
+      <th>Barcode</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+  [%- FOR event IN release.release_events -%]
+    <tr>
+      <td>[% event.releasedate %]</td>
+      <td>[% event.country.name %]</td>
+      <td>[% event.label.name %]</td>
+      <td>[% event.catno %]</td>
+      <td>[% event.barcode %]</td>
+      <td>[% event.format_name %]</td>
+    </tr>
+  [%- END -%]
+  </tbody>
+</table>
+
 </div>
 
 [%- END -%]

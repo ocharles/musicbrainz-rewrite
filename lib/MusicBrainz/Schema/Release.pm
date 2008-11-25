@@ -27,11 +27,13 @@ __PACKAGE__->has_one(meta => 'MusicBrainz::Schema::ReleaseMeta', 'id');
 __PACKAGE__->has_many(release_tracks => 'MusicBrainz::Schema::ReleaseTrack', 'album');
 __PACKAGE__->many_to_many(tracks => 'release_tracks', 'track');
 
+__PACKAGE__->has_many(release_events => 'MusicBrainz::Schema::ReleaseEvent', 'album');
+
 sub sequenced_tracks
 {
     my $self = shift;
     return $self->tracks({ }, {
-        order_by => [ 'sequence' ],
+        order_by  => [ 'sequence' ],
     });
 }
 
