@@ -40,6 +40,7 @@ a {
     background: #aaa;
     padding: 4pt 5pt;
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }
 
 #sidebar li {
@@ -50,22 +51,22 @@ a {
     border: none;
 }
 
-#sidebar_search {
+#sidebar form {
     padding: 10pt;
     text-align: center;
 }
 
-#sidebar_search input,
-#sidebar_search select {
+#sidebar form input,
+#sidebar form select {
     font-size: 14pt;
     width: 90%;
 }
 
-#sidebar_search p {
+#sidebar form p {
     margin-bottom: 2pt;
 }
 
-#sidebar_search .submit {
+#sidebar form .submit {
     width: auto;
     margin-top: 6pt;
 }

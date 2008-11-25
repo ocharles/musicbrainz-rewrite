@@ -17,6 +17,7 @@
 <div id="sidebar">
   <ul>
     [%- INCLUDE 'layout/sidebar/search.tt' -%]
+    [%- INCLUDE 'layout/sidebar/login.tt' UNLESS c.user_exists -%]
   </ul>
 </div>
 
