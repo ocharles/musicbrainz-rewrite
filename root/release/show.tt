@@ -1,0 +1,30 @@
+[%- WRAPPER 'layout.tt' title="${release.name} by ${release.artist.name}" -%]
+
+<div class="entity_header release_header">
+  <h1>
+    <a href="[% c.uri_for('/release', release.gid) %]">[% release.name %]</a>
+  </h1>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    [%- FOR track IN release.sequenced_tracks -%]
+      <td>[% loop.count %]</td>
+      <td>[% track.name %]</td>
+      <td>[% track.artist.name %]</td>
+      <td>[% track.length %]</td>
+    </tr>
+    [%- END -%]
+  </tbody>
+</table>
+
+[%- END -%]

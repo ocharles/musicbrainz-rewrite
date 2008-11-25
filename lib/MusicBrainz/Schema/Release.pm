@@ -24,6 +24,14 @@ __PACKAGE__->has_one(    meta     => 'MusicBrainz::Schema::ReleaseMeta', 'id');
 __PACKAGE__->has_many(release_tracks => 'MusicBrainz::Schema::ReleaseTrack', 'album');
 __PACKAGE__->many_to_many(tracks => 'release_tracks', 'track');
 
+sub sequenced_tracks
+{
+    my $self = shift;
+    return $self->tracks({ }, {
+        order_by => [ 'sequence' ],
+    });
+}
+
 Readonly::Scalar our $ALBUM_ATTRIBUTE       => 1;
 Readonly::Scalar our $SINGLE_ATTRIBUTE      => 2;
 Readonly::Scalar our $EP_ATTRIBUTE          => 3;
@@ -65,7 +73,7 @@ sub release_status
 {
     my $self = shift;
     my @status_attributes = grep { $_ >= 100 && $_ <= 103 } @{$self->attributes};
-    return @status_attributes;
+    return $status_attributes[0];
 }
 
 sub release_status_name

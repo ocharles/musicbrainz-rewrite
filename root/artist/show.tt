@@ -41,7 +41,7 @@
       </td>
       <td>[% release.meta.firstreleasedate %]</td>
       <td>-</td>
-      <td><a href="[% c.uri_for('/release', release.mbid) %]">[% release.name %]</a></td>
+      <td><a href="[% c.uri_for('/release', release.gid) %]">[% release.name %]</a></td>
     </tr>
     [%- END -%]
   </tbody>

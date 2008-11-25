@@ -12,7 +12,7 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->belongs_to('release' => 'MusicBrainz::Schema::Artist', 'album');
-__PACKAGE__->belongs_to('track' => 'MusicBrainz::Schema::Artist', 'track');
+__PACKAGE__->belongs_to('release' => 'MusicBrainz::Schema::Release', 'album');
+__PACKAGE__->belongs_to('track'   => 'MusicBrainz::Schema::Track', 'track');
 
 1;
