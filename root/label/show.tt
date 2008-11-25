@@ -4,8 +4,14 @@
   <div class="information">
     <h1>
       <a href="[% c.uri_for('/label', label.gid) %]">[% label.name %]</a>
-      [% "({$label.resolution})" IF label.resolution -%]
+      [% "($label.resolution)" IF label.resolution -%]
     </h1>
+  </div>
+  <div class="info_links">
+    Info: <a href="[% c.uri_for('/label', label.gid) %]">Releases</a>
+  </div>
+  <div class="edit_links">
+    Edit: <a href="[% c.uri_for('/user/login') %]">Please login to edit this data</a>
   </div>
 </div>
 
