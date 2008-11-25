@@ -78,30 +78,36 @@ p {
     letter-spacing: -10pt;
 }
 
-table.searchresults {
+table {
     width: 100%;
     border-collapse: collapse;
 }
-table.searchresults td
+table td
 {
     padding: 2pt;
 }
-tr.searchresultsheader {
+tr .searchresultsheader,
+thead tr th {
     font-weight: bold;
     border-bottom: 1px solid black;
+    text-align: left;
 }
+
 tr.searchresultseven,
-tr.searchresultsodd {
+tr.searchresultsodd,
+tbody tr {
     border-bottom: 1px solid #aaa;
 }
 
-tr.searchresultsodd {
+tr.searchresultsodd,
+tbody tr.odd {
     background: #eee;
 }
 
 .entity_header {
     background: #F0EFFF url(/static/images/aicon_lg.png) no-repeat 7pt 7pt;
     border: 1px solid black;
+    margin-bottom: 16pt;
 }
 
 .entity_header h1 {
@@ -135,4 +141,9 @@ tr.searchresultsodd {
 
 .artist_header {
     background: #FOEFFF 
+}
+
+#content h2 {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 12pt;
 }
