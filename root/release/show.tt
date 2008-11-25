@@ -1,31 +1,48 @@
 [%- USE Duration -%]
 [%- WRAPPER 'layout.tt' title="${release.name} by ${release.artist.name}" -%]
 
-<div class="entity_header release_header">
-  <h1>
-    <a href="[% c.uri_for('/release', release.gid) %]">[% release.name %]</a>
-  </h1>
-</div>
+[%- INCLUDE 'artist/header.tt' artist=release.artist -%]
 
-<table>
+<div class="release">
+<h3>[% release.name %]</h2>
+
+<table class="tracklisting">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Length</th>
+      <th class="seq">#</th>
+      <th class="name">Title</th>
+      <th class="artist">Artist</th>
+      <th class="length">Length</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
     [%- FOR track IN release.sequenced_tracks -%]
-      <td>[% loop.count %]</td>
+    <tr[% ' class="odd"' IF loop.count % 2 != 0 %]>
+      <td class="seq">[% loop.count %].</td>
       <td>[% track.name %]</td>
       <td>[% track.artist.name %]</td>
-      <td>[% Duration(track.length) %]</td>
+      <td class="length">[% Duration(track.length) %]</td>
     </tr>
     [%- END -%]
   </tbody>
 </table>
+
+<table class="discids">
+  <thead>
+    <tr>
+      <th class="discid">Disc ID</th>
+      <th class="length">Length</th>
+    </tr>
+  </thead>
+  <tbody>
+  [%- FOR discid IN release.discids -%]
+    <tr>
+      <td>[% discid.discid %]</td>
+    </tr>
+  [%- END -%]
+  </tbody>
+</table>
+
+</div>
 
 [%- END -%]

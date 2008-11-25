@@ -10,6 +10,14 @@ p {
     margin-bottom: 12pt;
 }
 
+a:hover {
+    text-decoration:underline;
+}
+a {
+    color:#534D8B;
+    text-decoration:none;
+}
+
 .hide {
     position: absolute;
     left: -9001pt;       /* OVER 9000?! */
@@ -82,7 +90,9 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
-table td
+
+table td,
+table th
 {
     padding: 2pt;
 }
@@ -105,17 +115,23 @@ tbody tr.odd {
 }
 
 .entity_header {
-    background: #F0EFFF url(/static/images/aicon_lg.png) no-repeat 7pt 7pt;
+    background: #F0EFFF url(/static/images/aicon_lg.png) no-repeat 7pt 10pt;
     border: 1px solid black;
     margin-bottom: 16pt;
 }
 
+.entity_header p {
+    margin-bottom: 0;
+}
+
+.entity_header .information {
+    margin: 10pt 10pt 3pt 50px;
+}
+
 .entity_header h1 {
     color: #777;
-    margin: 10pt 10pt 10pt 50px;
-    font-style: normal;
-    font-weight: normal;
     font-size: 15pt;
+    font-weight: normal;
 }
 
 .entity_header h1 a {
@@ -129,8 +145,12 @@ tbody tr.odd {
 }
 
 .entity_header .info_links {
+    padding: 2pt 10pt;
+}
+
+.entity_header .edit_links {
     border-top: 1px solid black;
-    background: #ddd;
+    background: #FFECD6;
     padding: 2pt 10pt;
 }
 
@@ -146,4 +166,30 @@ tbody tr.odd {
 #content h2 {
     border-bottom: 1px solid #ddd;
     margin-bottom: 12pt;
+}
+
+.release {
+    border: 1px solid black;
+}
+
+.release h3 {
+    background: #FFBA58;
+    padding: 2pt 5pt;
+    border-bottom: 1px solid black;
+}
+
+table.tracklisting .seq {
+    width: 20pt;
+    text-align: right;
+    padding-right: 10pt;
+}
+
+table.tracklisting .artist {
+    width: 200pt;
+}
+
+table.tracklisting .length,
+table.discids .length {
+    width: 70pt;
+    text-align: center;
 }

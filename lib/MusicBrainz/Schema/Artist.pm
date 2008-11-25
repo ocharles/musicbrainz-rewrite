@@ -5,6 +5,8 @@ use warnings;
 
 use base 'DBIx::Class';
 
+use Readonly;
+
 __PACKAGE__->load_components(qw/ PK::Auto Core /);
 __PACKAGE__->table('artist');
 __PACKAGE__->add_columns(qw/
@@ -14,5 +16,33 @@ __PACKAGE__->add_columns(qw/
 __PACKAGE__->set_primary_key('id');
 
 __PACKAGE__->has_many(releases => 'MusicBrainz::Schema::Release', 'artist');
+
+Readonly::Scalar our $ARTIST_TYPE_UNKNOWN => 0;
+Readonly::Scalar our $ARTIST_TYPE_PERSON  => 1;
+Readonly::Scalar our $ARTIST_TYPE_GROUP   => 2;
+
+my %artist_type_names = (
+    $ARTIST_TYPE_UNKNOWN => [ 'Unknown', 'Begin Date', 'End Date' ],
+    $ARTIST_TYPE_PERSON  => [ 'Person', 'Born', 'Deceased' ],
+    $ARTIST_TYPE_GROUP   => [ 'Group', 'Founded', 'Dissolved' ],
+);
+
+sub type_name
+{
+    my $self = shift;
+    return $artist_type_names{$self->type}->[0];
+}
+
+sub begin_date_label
+{
+    my $self = shift;
+    return $artist_type_names{$self->type}->[1];
+}
+
+sub end_date_label
+{
+    my $self = shift;
+    return $artist_type_names{$self->type}->[2];
+}
 
 1;
