@@ -40,7 +40,6 @@ a {
     background: #aaa;
     padding: 4pt 5pt;
     border-bottom: 1px solid black;
-    border-top: 1px solid black;
 }
 
 #sidebar li {
@@ -49,6 +48,11 @@ a {
 
 #sidebar li li {
     border: none;
+    list-style-type: none;
+}
+
+#sidebar ul ul {
+    padding: 10pt;
 }
 
 #sidebar form {

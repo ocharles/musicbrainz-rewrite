@@ -14,12 +14,24 @@ use Catalyst::Runtime '5.70';
 #                 directory
 
 use parent qw/Catalyst/;
-use Catalyst qw/-Debug
-                ConfigLoader
-                Static::Simple/;
+
+use Catalyst qw/
+-Debug
+ConfigLoader
+Static::Simple
+
+StackTrace
+
+Session
+Session::State::Cookie
+Session::Store::FastMmap
+
+Authentication
+/;
+
 our $VERSION = '0.01';
 
-# Configure the application. 
+# Configure the application.
 #
 # Note that settings in musicbrainz.conf (or other external
 # configuration file that you set up manually) take precedence
@@ -35,6 +47,24 @@ __PACKAGE__->config(
         PLUGIN_BASE        => 'MusicBrainz::Plugin',
     },
 );
+
+__PACKAGE__->config->{'Plugin::Authentication'} = {
+    default_realm => 'moderators',
+    realms => {
+        moderators => {
+            credential => {
+                class => 'Password',
+                password_field => 'password',
+                password_type => 'clear'
+            },
+            store => {
+                class => 'DBIx::Class',
+                user_model => 'MainDB::Editor',
+
+            }
+        }
+    }
+};
 
 # Start the application
 __PACKAGE__->setup();
