@@ -1,11 +1,11 @@
-package MusicBrainz::View::Default;
+package MusicBrainz::Server::View::Default;
 
 use strict;
 use base 'Catalyst::View::TT';
 
 =head1 NAME
 
-MusicBrainz::Serve::View::Default - Catalyst TT View
+MusicBrainz::Server::Serve::View::Default - Catalyst TT View
 
 =head1 DESCRIPTION
 

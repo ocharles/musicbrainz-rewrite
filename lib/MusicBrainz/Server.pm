@@ -1,4 +1,4 @@
-package MusicBrainz;
+package MusicBrainz::Server;
 
 use strict;
 use warnings;
@@ -41,10 +41,10 @@ our $VERSION = '0.01';
 # local deployment.
 
 __PACKAGE__->config(
-    name => 'MusicBrainz',
+    name => 'MusicBrainz::Server',
     'View::Default' => {
         TEMPLATE_EXTENSION => '.tt',
-        PLUGIN_BASE        => 'MusicBrainz::Plugin',
+        PLUGIN_BASE        => 'MusicBrainz::Server::Plugin',
     },
 );
 
@@ -84,7 +84,7 @@ MusicBrainz - Catalyst based application
 
 =head1 SEE ALSO
 
-L<MusicBrainz::Controller::Root>, L<Catalyst>
+L<MusicBrainz::Server::Controller::Root>, L<Catalyst>
 
 =head1 AUTHOR
 

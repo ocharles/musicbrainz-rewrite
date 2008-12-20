@@ -1,4 +1,4 @@
-package MusicBrainz::Controller::User;
+package MusicBrainz::Server::Controller::User;
 
 use strict;
 use warnings;

@@ -52,9 +52,9 @@ if ( $debug ) {
 
 # This is require instead of use so that the above environment
 # variables can be set at runtime.
-require MusicBrainz;
+require MusicBrainz::Server;
 
-MusicBrainz->run( $port, $host, {
+MusicBrainz::Server->run( $port, $host, {
     argv              => \@argv,
     'fork'            => $fork,
     keepalive         => $keepalive,

@@ -1,4 +1,4 @@
-package MusicBrainz::Controller::Search;
+package MusicBrainz::Server::Controller::Search;
 
 use strict;
 use warnings;

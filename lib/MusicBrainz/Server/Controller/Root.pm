@@ -1,4 +1,4 @@
-package MusicBrainz::Controller::Root;
+package MusicBrainz::Server::Controller::Root;
 
 use strict;
 use warnings;
@@ -8,7 +8,7 @@ __PACKAGE__->config->{namespace} = '';
 
 =head1 NAME
 
-MusicBrainz::Controller::Root - Root Controller for MusicBrainz
+MusicBrainz::Server::Controller::Root - Root Controller for MusicBrainz
 
 =head1 DESCRIPTION
 

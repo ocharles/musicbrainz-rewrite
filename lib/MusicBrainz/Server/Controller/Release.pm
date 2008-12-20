@@ -1,4 +1,4 @@
-package MusicBrainz::Controller::Release;
+package MusicBrainz::Server::Controller::Release;
 
 use strict;
 use warnings;

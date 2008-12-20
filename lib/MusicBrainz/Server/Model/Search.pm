@@ -1,4 +1,4 @@
-package MusicBrainz::Model::Search;
+package MusicBrainz::Server::Model::Search;
 
 use strict;
 use warnings;
@@ -17,7 +17,7 @@ __PACKAGE__->config(
 
 =head1 NAME
 
-MusicBrainz::Model::Search - handle searching for entities that
+MusicBrainz::Server::Model::Search - handle searching for entities that
 cannot be found with simple database queries
 
 =head1 DESCRIPTION

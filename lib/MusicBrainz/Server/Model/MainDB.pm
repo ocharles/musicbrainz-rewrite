@@ -1,4 +1,4 @@
-package MusicBrainz::Model::MainDB;
+package MusicBrainz::Server::Model::MainDB;
 
 use strict;
 use warnings;

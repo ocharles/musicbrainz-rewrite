@@ -6,7 +6,7 @@ use Getopt::Long;
 use Pod::Usage;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
-use Catalyst::Test 'MusicBrainz';
+use Catalyst::Test 'MusicBrainz::Server';
 
 my $help = 0;
 

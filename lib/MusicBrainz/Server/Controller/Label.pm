@@ -1,4 +1,4 @@
-package MusicBrainz::Controller::Label;
+package MusicBrainz::Server::Controller::Label;
 
 use strict;
 use warnings;

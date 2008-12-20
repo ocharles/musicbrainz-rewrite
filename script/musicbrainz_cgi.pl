@@ -6,9 +6,9 @@ use strict;
 use warnings;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
-use MusicBrainz;
+use MusicBrainz::Server;
 
-MusicBrainz->run;
+MusicBrainz::Server->run;
 
 1;
 

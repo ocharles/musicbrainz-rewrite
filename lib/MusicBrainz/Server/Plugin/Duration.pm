@@ -1,4 +1,4 @@
-package MusicBrainz::Plugin::Duration;
+package MusicBrainz::Server::Plugin::Duration;
 
 use strict;
 use warnings;
