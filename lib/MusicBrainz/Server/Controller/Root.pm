@@ -6,6 +6,11 @@ use warnings;
 use base 'Catalyst::Controller';
 __PACKAGE__->config->{namespace} = '';
 
+use MusicBrainz::Server::Form::Editor::Login;
+use MusicBrainz::Server::Form::Search::Simple;
+
+use Form::Moose::Renderer::Paragraphs;
+
 =head1 NAME
 
 MusicBrainz::Server::Controller::Root - Root Controller for MusicBrainz
@@ -49,7 +54,12 @@ Attempt to render a view, if needed.
 
 =cut
 
-sub end : ActionClass('RenderView') {}
+sub end : ActionClass('RenderView') {
+    my ($self, $c) = @_;
+    $c->stash->{login_form} = MusicBrainz::Server::Form::Editor::Login->new;
+    $c->stash->{sidebar_search} = MusicBrainz::Server::Form::Search::Simple->new;
+    $c->stash->{renderer} = Form::Moose::Renderer::Paragraphs->new;
+}
 
 =head1 AUTHOR
 

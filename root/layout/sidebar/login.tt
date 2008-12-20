@@ -1,14 +1,2 @@
 <h3>Login</h3>
-<form action="[% c.uri_for('/user/login') %]" method="post">
-  <p>
-    <label class="hide" for="id_username">User Name:</label>
-    <input type="text" name="username" id="id_username" />
-  </p>
-  <p>
-    <label class="hide" for="id_password">Password:</label>
-    <input type="password" name="password" id="id_password" />
-  </p>
-  <p>
-    <input type="submit" value="Login" class="submit" />
-  </p>
-</form>
+[% renderer.render_form(login_form) %]
