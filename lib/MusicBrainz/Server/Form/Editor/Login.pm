@@ -11,7 +11,7 @@ field 'user_name' => (
 field 'password' => (
     required => 1,
     constraints => [ 'SingleLine' ],
-    widget => 'Text',
+    widget => 'Password',
     label => 'Password',
 );
 

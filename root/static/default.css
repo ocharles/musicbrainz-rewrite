@@ -18,11 +18,6 @@ a {
     text-decoration:none;
 }
 
-.hide {
-    position: absolute;
-    left: -9001pt;       /* OVER 9000?! */
-}
-
 #content {
     padding: 10pt;
     margin-left: 150pt;
@@ -73,6 +68,11 @@ a {
 #sidebar form .submit {
     width: auto;
     margin-top: 6pt;
+}
+
+#sidebar form label {
+    position: absolute;
+    left: -9001pt;       /* OVER 9000?! */
 }
 
 #header {

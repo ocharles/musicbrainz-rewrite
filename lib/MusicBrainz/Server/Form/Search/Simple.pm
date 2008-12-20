@@ -21,7 +21,7 @@ field 'type' => (
         },
     } ],
     required => 1,
-    widget => 'Text',
+    widget => 'Combo',
     label => 'Search Type'
 );
 
