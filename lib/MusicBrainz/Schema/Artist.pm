@@ -1,9 +1,8 @@
 package MusicBrainz::Schema::Artist;
+use Moose;
 
-use strict;
-use warnings;
-
-use base 'DBIx::Class';
+extends 'DBIx::Class', 'Moose::Object';
+with 'MusicBrainz::Role::Quality';
 
 use Readonly;
 
@@ -43,26 +42,6 @@ sub end_date_label
 {
     my $self = shift;
     return $artist_type_names{$self->type}->[2];
-}
-
-Readonly::Scalar our $QUALITY_UNKNOWN        => -1;
-Readonly::Scalar our $QUALITY_UNKNOWN_MAPPED => 1;
-Readonly::Scalar our $QUALITY_LOW            => 0;
-Readonly::Scalar our $QUALITY_NORMAL         => 1;
-Readonly::Scalar our $QUALITY_HIGH           => 2;
-
-Readonly::Hash our %QUALITY_NAMES => (
-    $QUALITY_LOW    => 'low',
-    $QUALITY_NORMAL => 'default',
-    $QUALITY_HIGH   => 'high',
-);
-
-sub quality_name {
-    my $self = shift;
-
-    my $quality = $self->quality;
-    $quality = $QUALITY_UNKNOWN_MAPPED if $quality == $QUALITY_UNKNOWN;
-    return $QUALITY_NAMES{$quality};
 }
 
 1;
