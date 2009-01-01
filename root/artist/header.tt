@@ -1,5 +1,6 @@
 [%- PROCESS 'comp/date_period.tt' -%]
 [%- PROCESS 'comp/wrap_text.tt' -%]
+[%- PROCESS 'comp/pipe_list.tt' -%]
 
 <div class="entity_header artist_header">
     <div class="information">
@@ -13,19 +14,22 @@
         </p>
     </div>
     <div class="info_links">
-        [%- links = [
+        [%- pipe_list([
             { to => c.uri_for("releases"), text => "Releases" },
             { to => c.uri_for("aliases"),  text => "Aliases" },
-        ] -%]
-        Info:
-        <ul>
-            [% FOREACH link IN links %]
-            <li><a href="[% link.to %]">[% link.text %]</li>
-            [% END %]
-        </ul>
-        <a href="[% c.uri_for('releases') %]">Releases</a>
+        ]) -%]
     </div>
     <div class="edit_links">
-        Edit: <a href="#">Please login to edit this data</a>
+        [%- IF c.user_exists;
+            links = [
+                { to => c.uri_for('edit'), text => 'Edit' },
+            ];
+        ELSE;
+            links = [
+                { to => c.uri_for('/user/login'),
+                text => "Please login to edit this data" }
+            ];
+        END %]
+        [%- pipe_list(links) -%]
     </div>
 </div>
