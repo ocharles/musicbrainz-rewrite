@@ -15,8 +15,10 @@
     </div>
     <div class="info_links">
         [%- pipe_list([
-            { to => object_link(artist, "show"), text => "Releases" },
-            { to => object_link(artist, "aliases"),  text => "Aliases" },
+            { to => object_link(artist, "show"),         text => "Releases" },
+            { to => object_link(artist, "aliases"),      text => "Aliases" },
+            { to => object_link(artist, "subscribers"),  text => "Subscriptions" },
+            { to => object_link(artist, "details"),      text => "Details" }
         ]) -%]
     </div>
     <div class="edit_links">
