@@ -24,4 +24,6 @@ sub show :Chained('load') :PathPart('')
 
 sub aliases :Chained('load') :PathPart { }
 
+sub details :Chained('load') :PathPart { }
+
 1;

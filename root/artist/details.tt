@@ -1,0 +1,36 @@
+[%- WRAPPER 'artist/layout.tt' title='details' -%]
+    <h2>Details</h2>
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>[% artist.name %]</td>
+            </tr>
+            [%- IF artist.name != artist.sortname -%]
+            <tr>
+                <th>Sort Name</th>
+                <td>[% artist.sortname %]</td>
+            </tr>
+            [%- END -%]
+            [%- IF artist.resolution -%]
+            <tr>
+                <th>Comment</th>
+                <td>[% artist.resolution %]</td>
+            </tr>
+            [%- END -%]
+            <tr>
+                <th>
+                    <acronym title="MusicBrainz Identifier">MBID</acronynm>
+                </th>
+                <td>[% artist.gid %]</td>
+            </tr>
+            <tr>
+                <th>Permanent link</th>
+                <td>
+                    [%- link = object_link(artist, 'show') -%]
+                    <a href="[% link %]">[% link %]</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+[%- END -%]
