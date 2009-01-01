@@ -32,10 +32,15 @@ a.mp { background: #FFFFCC; }
  * Header
  */
 #header {
-    background: #736DAB;
-    border-bottom: 1px solid #000;
+    background: #736DAB;#
     margin: 0; padding: 0;
     position: relative;
+}
+
+#header img#brainz {
+    position: absolute;
+    bottom: 1px;
+    left: 0px;
 }
 
 /*
@@ -278,17 +283,14 @@ hr {
     border-top: 1px dotted #aaa;
 }
 
-#header img#brainz {
-    position: absolute;
-    bottom: 0px;
-}
-
 #menu_bar {
     clear: both;
     overflow: hidden;
     margin: 0;
     background: #ffbb55;
     border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    top: 100px;
 }
 
 #menu_bar,
@@ -450,6 +452,7 @@ hr {
     background: #FFBA58;
     padding: 2pt 5pt;
     border-bottom: 1px solid black;
+    margin: 0;
 }
 
 table.tracklisting .seq {
