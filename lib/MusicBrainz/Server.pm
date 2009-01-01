@@ -60,7 +60,6 @@ __PACKAGE__->config->{'Plugin::Authentication'} = {
             store => {
                 class => 'DBIx::Class',
                 user_model => 'MainDB::Editor',
-
             }
         }
     }

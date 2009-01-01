@@ -1,0 +1,469 @@
+/* 
+ * General Elements
+ */
+body {
+    font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+    font-size: 12.5px;
+    line-height: 1.5em;
+    margin: 0;
+    width: 100%;
+    background: #fff;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 12pt;
+}
+
+a {
+    color: #534D8B;
+    text-decoration: none;
+}
+
+a img { border: none; }
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.mp { background: #FFFFCC; }
+
+/*
+ * Header
+ */
+#header {
+    background: #736DAB;
+    border-bottom: 1px solid #000;
+    margin: 0; padding: 0;
+    position: relative;
+}
+
+/*
+ * Footer
+ */
+#footer {
+    clear: both;
+}
+
+#footer-bar {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: block;
+    margin-bottom: 10pt;
+    overflow: hidden;
+    padding: 3pt;
+    background: #FFBA58;
+}
+
+#footer-bar a {
+    color: #997035;
+}
+
+#footer-bar a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+#footer-bar li {
+    list-style-type: none;
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+/*
+ * Credits bar
+ */
+#creditsBar {
+    clear: both;
+    color: #BBB;
+    margin: 0 1em;
+    margin-bottom: 1em;
+}
+
+#creditsBar a, #footerNotes a {
+    font-weight: bold;
+    color: #BBB;
+}
+
+#creditsBar a:hover, #footerNotes a:hover {
+    color: #555;
+}
+
+#creditsBar li {
+    text-align: center;
+    list-style-type: none;
+}
+#creditsBar li.left { float: left;}
+#creditsBar li.right { float: right; }
+
+/*
+ * Sidebar
+ */
+#sidebar {
+    width: 130px;
+    background: #DDD;
+    border-right: 1px solid #000;
+    color: #050505;
+    font-size: 9pt;
+    margin-bottom: 20pt;
+}
+
+#sidebar .sidebar-module {
+    border-bottom: 1px solid #000;
+    padding: 6pt;
+}
+
+#sidebar label {
+    font-size: 8pt;
+}
+
+#sidebar input, #sidebar select {
+    width: 50pt;
+    background: #eee;
+    border: 1px inset;
+    font-size: 8pt;
+}
+
+#sidebar .labelRight {
+    margin-left: 32pt;
+}
+
+#sidebar img {
+    margin: auto;
+    display: block;
+    margin-bottom: 2pt;
+}
+
+#sidebar h3 {
+    background: #BBB;
+    margin: 0;
+    padding: 5pt;
+    border-bottom: 1px solid #000;
+    font-size: 8pt;
+    padding: 0pt 4pt;
+}
+
+#sidebar h3 a:visited,
+#sidebar h3 a:active,
+#sidebar h3 a:hover,
+#sidebar h3 a:link {
+    color: #000;
+}
+
+#sidebar h3 a:hover { text-decoration: underline; }
+
+#sidebar a {
+    color: #555;
+}
+
+#sidebar a:hover {
+    color: #000;
+}
+
+#sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar li {
+    list-style-type: none;
+}
+
+#sidebar ul ul {
+    padding: 0;
+    padding-left: 10pt;
+}
+
+#sidebar table.details th,
+#sidebar table.details td {
+    min-width: 10pt;
+    font-size: 8pt;
+    padding: 0;
+}
+
+#sidebar table.details td {
+    padding-left: 5pt;
+}
+
+/*
+ * Content
+ */
+#container {
+    width: 100%;
+    float: right;
+    margin-left: -200px;
+}
+
+#content {
+    margin-left: 140px;
+    padding: 15px;
+}
+
+/*
+ * Boxes
+ */
+div.box {
+    border: 1px solid #FFBB55;
+    margin-bottom: 16pt;
+    overflow: auto;
+}
+
+div.box h2 {
+    border-bottom: 1px solid #FFBB55;
+    margin: 0;
+    padding: 2pt 4pt;
+    background: url(/static/images/header-bg-orangefade.gif) repeat-y;
+    font-size: 10pt;
+}
+
+div.purple h2 {
+    background: url(/static/images/header-bg-lightpurplefade.gif) repeat-y;
+    border-bottom: 1px solid #736DAB;
+}
+
+div.purple {
+    border: 1px solid #736DAB;
+}
+
+div.box div.content {
+    padding: 5pt;
+}
+
+div.bio { 
+    width: 90%;
+    border: 1px dotted #CCC; 
+    padding: 0px 5px 5px 5px; 
+}
+
+ul.tagcloud li {
+    display: inline;
+    padding-right: 10pt;
+    list-style-type: none;
+}
+
+table.details th {
+    text-align: right;
+    min-width: 70pt;
+    padding-right: 10pt;
+    vertical-align: top;
+}
+
+/* Nested details tables look dumb */
+table.details table.details th { font-weight: normal; }
+
+#sidebar form input,
+#sidebar form select {
+    font-size: 14pt;
+    width: 90%;
+}
+
+#sidebar form p {
+    margin-bottom: 2pt;
+}
+
+#sidebar form .submit {
+    width: auto;
+    margin-top: 6pt;
+}
+
+#sidebar form label {
+    position: absolute;
+    left: -9001pt;       /* OVER 9000?! */
+}
+
+hr {
+    height: 1px;
+    border: none;
+    border-top: 1px dotted #aaa;
+}
+
+#header img#brainz {
+    position: absolute;
+    bottom: 0px;
+}
+
+#menu_bar {
+    clear: both;
+    overflow: hidden;
+    margin: 0;
+    background: #ffbb55;
+    border-top: 1px solid #000;
+}
+
+#menu_bar,
+#menu_bar ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu_bar li {
+    float: left;
+    list-style-type: none;
+    background: url(/static/images/black_pixel.gif) repeat-y top left;
+}
+
+#menu_bar li.first {
+    margin-left: 130px;
+}
+
+#menu_bar li.last {
+    border-right: 1px solid #000;
+}
+
+#menu_bar a {
+    font-weight: bold;
+}
+
+#menu_bar a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+#menu_bar li a {
+    padding: .2em 1em;
+    display: block;
+    background: none;
+    color: black;
+}
+
+#menu_bar li a:hover,
+#menu_bar li a.selected {
+    background: #7777aa url(/static/images/black_pixel.gif) repeat-y top left;
+    color: white;
+}
+
+#menu_bar li ul {
+    position: absolute;
+    left: -999em;
+    background: #F0EFFF;
+    border: 1px solid black;
+}
+
+#menu_bar li ul li {
+     background: none;
+     float: none;
+     margin: 0;
+     border-bottom: 1px dotted #bbb;
+     border-right: none;
+}
+#menu_bar li ul li:hover {
+    background: #E0DEEE;
+}
+#menu_bar li ul li a:hover {
+    background: none;
+    color: black
+}
+
+#menu_bar li:hover ul,
+#menu_bar li.sfhover ul {
+    left: auto;
+}
+
+#content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#content table td,
+#content table th
+{
+    padding: 2pt;
+}
+#content tr .searchresultsheader,
+#content thead tr th {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+
+#content tr.searchresultseven,
+#content tr.searchresultsodd,
+#content tbody tr {
+    border-bottom: 1px solid #aaa;
+}
+
+#content tr.searchresultsodd,
+#content tbody tr.odd {
+    background: #eee;
+}
+
+.entity_header {
+    background: #F0EFFF url(/static/images/aicon_lg.png) no-repeat 7pt 10pt;
+    border: 1px solid black;
+    margin-bottom: 16pt;
+}
+
+.entity_header p {
+    margin-bottom: 0;
+}
+
+.entity_header .information {
+    margin: 10pt 10pt 3pt 50px;
+}
+
+.entity_header h1 {
+    color: #777;
+    font-size: 15pt;
+    font-weight: normal;
+}
+
+.entity_header h1 a {
+    text-decoration: none;
+    color: black;
+    font-size: 20pt;
+}
+
+.entity_header h1 a:hover {
+    text-decoration: underline;
+}
+
+.entity_header .info_links {
+    padding: 2pt 10pt;
+}
+
+.entity_header .edit_links {
+    border-top: 1px solid black;
+    background: #FFECD6;
+    padding: 2pt 10pt;
+}
+
+.entity_header li {
+    display: inline;
+    list-style-type: none;
+}
+
+.artist_header {
+    background: #FOEFFF 
+}
+
+#content h2 {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 12pt;
+}
+
+.release {
+    border: 1px solid black;
+}
+
+.release h3 {
+    background: #FFBA58;
+    padding: 2pt 5pt;
+    border-bottom: 1px solid black;
+}
+
+table.tracklisting .seq {
+    width: 20pt;
+    text-align: right;
+    padding-right: 10pt;
+}
+
+table.tracklisting .artist {
+    width: 200pt;
+}
+
+table.tracklisting .length,
+table.discids .length {
+    width: 70pt;
+    text-align: center;
+}

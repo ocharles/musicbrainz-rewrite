@@ -1,32 +1,41 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-        "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
+    <meta http-equiv="expires" content="1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>[%- title -%]</title>
-<link type="text/css" rel="stylesheet" href="/static/default.css" />
+    <title>[% title %][% " - " IF title %]MusicBrainz.org</title>
 
+    <link rel="stylesheet" type="text/css" href="[% c.uri_for('/main.css') %]" />
+
+    <link rel="search" type="application/opensearchdescription+xml"
+        title="MusicBrainz: Artist"
+        href="[% c.uri_for('/static/search_plugins/opensearch/musicbrainz_artist.xml') %]" />
+
+    <link rel="search" type="application/opensearchdescription+xml" title="MusicBrainz: Label"
+        href="[% c.uri_for('/static/search_plugins/opensearch/musicbrainz_label.xml') %]" />
+        
+    <link rel="search" type="application/opensearchdescription+xml" title="MusicBrainz: Release"
+        href="[% c.uri_for('/static/search_plugins/opensearch/musicbrainz_release.xml') %]" />
+        
+    <link rel="search" type="application/opensearchdescription+xml" title="MusicBrainz: Track"
+        href="[% c.uri_for('/static/search_plugins/opensearch/musicbrainz_track.xml') %]" />
 </head>
 
 <body>
+    
+[%- INCLUDE "layout/header.tt" -%]
 
+<div id="container">
 <div id="content">
   [%- content -%]
 </div>
-
-<div id="sidebar">
-  <ul>
-    <li>[%- INCLUDE 'layout/sidebar/search.tt' -%]</li>
-    <li>
-      [%- INCLUDE 'layout/sidebar/login.tt' UNLESS c.user_exists -%]
-      [%- INCLUDE 'layout/sidebar/profile.tt' IF c.user_exists -%]
-    </li>
-  </ul>
 </div>
 
-<div id="header">
-  <h1>MusicBrainz</h1>
-</div>
+[%- INCLUDE "layout/sidebar.tt" -%]
+[%- INCLUDE "layout/footer.tt" -%]
 
 </body>
 </html>

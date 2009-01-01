@@ -61,6 +61,18 @@ sub end : ActionClass('RenderView') {
     $c->stash->{renderer} = Form::Moose::Renderer::Paragraphs->new;
 }
 
+=head2 css
+
+Renders the CSS stylesheets. We use an action so we can use a TT template
+
+=cut
+
+sub css : Path('/main.css') {
+    my ($self, $c) = @_;
+    $c->response->content_type('text/css');
+    $c->stash->{template} = 'css/main.tt';
+}
+
 =head1 AUTHOR
 
 Oliver Charles
