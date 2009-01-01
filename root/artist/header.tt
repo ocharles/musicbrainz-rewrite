@@ -5,7 +5,7 @@
 <div class="entity_header artist_header">
     <div class="information">
         <h1>
-            <a href="[% c.uri_for('/artist', artist.gid) %]">[% artist.name %]</a>
+            <a href="[% object_link(artist, 'show') %]">[% artist.name %]</a>
                 [% wrap_text(artist.resolution, '(', ')') %]
         </h1>
         <p>
@@ -15,14 +15,14 @@
     </div>
     <div class="info_links">
         [%- pipe_list([
-            { to => c.uri_for("releases"), text => "Releases" },
-            { to => c.uri_for("aliases"),  text => "Aliases" },
+            { to => object_link(artist, "show"), text => "Releases" },
+            { to => object_link(artist, "aliases"),  text => "Aliases" },
         ]) -%]
     </div>
     <div class="edit_links">
         [%- IF c.user_exists;
             links = [
-                { to => c.uri_for('edit'), text => 'Edit' },
+                { to => object_link(artist, 'edit'), text => 'Edit' },
             ];
         ELSE;
             links = [
