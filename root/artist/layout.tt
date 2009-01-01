@@ -1,0 +1,4 @@
+[%- WRAPPER 'layout.tt' -%]
+    [%- INCLUDE 'artist/header.tt' -%]
+    [%- content -%]
+[%- END -%]

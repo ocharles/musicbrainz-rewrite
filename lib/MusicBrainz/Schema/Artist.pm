@@ -15,6 +15,7 @@ __PACKAGE__->add_columns(qw/
 __PACKAGE__->set_primary_key('id');
 
 __PACKAGE__->has_many(releases => 'MusicBrainz::Schema::Release', 'artist');
+__PACKAGE__->has_many(aliases  => 'MusicBrainz::Schema::ArtistAlias', 'ref');
 
 Readonly::Scalar our $ARTIST_TYPE_UNKNOWN => 0;
 Readonly::Scalar our $ARTIST_TYPE_PERSON  => 1;

@@ -22,4 +22,6 @@ sub show :Chained('load') :PathPart('')
     }) ];
 }
 
+sub aliases :Chained('load') :PathPart { }
+
 1;

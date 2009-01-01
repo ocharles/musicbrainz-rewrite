@@ -1,0 +1,19 @@
+[%- WRAPPER 'artist/layout.tt' title='Aliases' -%]
+    <h2>Aliases</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Alias</th>
+                <th>Times Used</th>
+            </tr>
+        </thead>
+        <tbody>
+            [%- FOREACH alias IN artist.aliases -%]
+            <tr>
+                <td>[% alias.name %]</td>
+                <td>[% alias.times_used %]</td>
+            </tr>
+            [%- END -%]
+        </tbody>
+    </table>
+[%- END -%]
