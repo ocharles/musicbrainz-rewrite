@@ -1,3 +1,1 @@
-<form action="[% c.uri_for('/search/external') %]" method="GET">
-    [% renderer.render_form(sidebar_search) %]
-</form>
+[% sidebar_search.as_p(action => c.uri_for('/search/external'), method => 'GET') %]

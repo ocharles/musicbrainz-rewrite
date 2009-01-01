@@ -58,7 +58,6 @@ sub end : ActionClass('RenderView') {
     my ($self, $c) = @_;
     $c->stash->{login_form} = MusicBrainz::Server::Form::Editor::Login->new;
     $c->stash->{sidebar_search} = MusicBrainz::Server::Form::Search::Simple->new;
-    $c->stash->{renderer} = Form::Moose::Renderer::Paragraphs->new;
 }
 
 =head2 css
