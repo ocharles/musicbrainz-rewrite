@@ -1,4 +1,4 @@
-[%- WRAPPER 'artist/layout.tt' title='details' -%]
+[%- WRAPPER 'artist/layout.tt' title='Details' -%]
     <h2>Details</h2>
     <table>
         <tbody>
@@ -30,6 +30,10 @@
                     [%- link = object_link(artist, 'show') -%]
                     <a href="[% link %]">[% link %]</a>
                 </td>
+            </tr>
+            <tr>
+                <th>Subscribed Editors</th>
+                <td>[% artist.subscribed_editors_rs.count %]</td>
             </tr>
         </tbody>
     </table>

@@ -1,0 +1,17 @@
+[%- WRAPPER 'artist/layout.tt' title='Subscribers' -%]
+    <h2>Subscribers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Editor</th>
+            </tr>
+        </thead>
+        <tbody>
+            [%- FOREACH editor IN artist.subscribed_editors -%]
+            <tr>
+                <td><a href="object_link(editor, 'profile')">[% editor.name %]</a></td>
+            </tr>
+            [%- END -%]
+        </tbody>
+    </table>
+[%- END -%]

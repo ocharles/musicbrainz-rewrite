@@ -17,6 +17,11 @@ __PACKAGE__->set_primary_key('id');
 __PACKAGE__->has_many(releases => 'MusicBrainz::Schema::Release', 'artist');
 __PACKAGE__->has_many(aliases  => 'MusicBrainz::Schema::ArtistAlias', 'ref');
 
+__PACKAGE__->has_many(
+    artist_subscribed_editors => 'MusicBrainz::Schema::Subscribe::Artist', 'artist'
+);
+__PACKAGE__->many_to_many(subscribed_editors => 'artist_subscribed_editors', 'editor');
+
 Readonly::Scalar our $ARTIST_TYPE_UNKNOWN => 0;
 Readonly::Scalar our $ARTIST_TYPE_PERSON  => 1;
 Readonly::Scalar our $ARTIST_TYPE_GROUP   => 2;
