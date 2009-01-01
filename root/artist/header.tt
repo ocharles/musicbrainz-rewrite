@@ -1,25 +1,31 @@
-[%- MACRO date_period(begin, end)
-    IF begin && end; "${begin} - ${end}";
-    ELSIF begin; "${artist.begin_date_label}: ${begin}";
-    ELSIF end;   "${artist.end_date_label}: ${end}";
-    END
--%]
+[%- PROCESS 'comp/date_period.tt' -%]
+[%- PROCESS 'comp/wrap_text.tt' -%]
 
 <div class="entity_header artist_header">
-  <div class="information">
-    <h1>
-      <a href="[% c.uri_for('/artist', artist.gid) %]">[% artist.name %]</a>
-        [% artist.resolution ? "(${artist.resolution})" : '' -%]
-    </h1>
-    <p>
-      Type: [% artist.type_name %], [% artist.quality_name %] data quality<br>
-      [%- date_period(artist.begindate, artist.enddate) -%]
-    </p>
-  </div>
-  <div class="info_links">
-    Info: <a href="[% c.uri_for('releases') %]">Releases</a>
-  </div>
-  <div class="edit_links">
-    Edit: <a href="#">Please login to edit this data</a>
-  </div>
+    <div class="information">
+        <h1>
+            <a href="[% c.uri_for('/artist', artist.gid) %]">[% artist.name %]</a>
+                [% wrap_text(artist.resolution, '(', ')') %]
+        </h1>
+        <p>
+            Type: [% artist.type_name %], [% artist.quality_name %] data quality<br>
+            [%- date_period(artist.begindate, artist.enddate) -%]
+        </p>
+    </div>
+    <div class="info_links">
+        [%- links = [
+            { to => c.uri_for("releases"), text => "Releases" },
+            { to => c.uri_for("aliases"),  text => "Aliases" },
+        ] -%]
+        Info:
+        <ul>
+            [% FOREACH link IN links %]
+            <li><a href="[% link.to %]">[% link.text %]</li>
+            [% END %]
+        </ul>
+        <a href="[% c.uri_for('releases') %]">Releases</a>
+    </div>
+    <div class="edit_links">
+        Edit: <a href="#">Please login to edit this data</a>
+    </div>
 </div>
