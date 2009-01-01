@@ -7,4 +7,6 @@
     <a href="[% c.uri_for('/') %]">
         <img id="brainz" src="[% c.uri_for('/static/images/brainzheader.png') %]" />
     </a>
+    
+    [%- INCLUDE "layout/menu.tt" -%]
 </div>

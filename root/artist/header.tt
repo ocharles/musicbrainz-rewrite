@@ -28,7 +28,7 @@
             ];
         ELSE;
             links = [
-                { to => c.uri_for('/user/login'),
+                { to => c.uri_for('/editor/login'),
                 text => "Please login to edit this data" }
             ];
         END %]

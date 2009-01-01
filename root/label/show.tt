@@ -11,7 +11,7 @@
     Info: <a href="[% object_link(label, 'show') %]">Releases</a>
   </div>
   <div class="edit_links">
-    Edit: <a href="[% c.uri_for('/user/login') %]">Please login to edit this data</a>
+    Edit: <a href="[% c.uri_for('/editor/login') %]">Please login to edit this data</a>
   </div>
 </div>
 

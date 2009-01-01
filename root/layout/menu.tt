@@ -12,7 +12,7 @@
             <li>[%- INCLUDE 'comp/doc.tt' to='Development' text='Development' -%]</li>
             <li>[%- INCLUDE 'comp/doc.tt' to='Server Statistics' text='Server Statistics' -%]</li>
             <li>[%- INCLUDE 'comp/doc.tt' to='MusicBrainzLogo' text='Logo' -%]</li>
-            <li><a href="[% c.uri_for('/user/elections') %]">Autoeditor Elections</a></li>
+            <li><a href="[% c.uri_for('/editor/elections') %]">Autoeditor Elections</a></li>
         </ul>
     </li>
     
@@ -71,24 +71,24 @@
 
 [%- IF c.user_exists -%]
     <li>
-        <a href="[% c.uri_for('/user/profile', c.user.name) %]">Account</a>
+        <a href="[% c.uri_for('/editor/profile', c.user.name) %]">Account</a>
         <ul>
-	    <li><a href="[% c.uri_for('/user/edit') %]">Edit Account</a></li>
-	    <li><a href="[% c.uri_for('/user/change_password') %]">Change Password</a></li>
-	    <li><a href="[% c.uri_for('/user/preferences') %]">Preferences</a></li>
-	    <li><a href="[% c.uri_for('/user/subscriptions') %]">Subscriptions</a></li>
-	    <li><a href="[% c.uri_for('/user/subscribers') %]">Subscribers</a></li>
-	    <li><a href="[% c.uri_for('/user/donate') %]">Check Donation Status</a></li>
-	    <li><a href="[% c.uri_for('/user/logout') %]">Logout</a></li>
+	    <li><a href="[% c.uri_for('/editor/edit') %]">Edit Account</a></li>
+	    <li><a href="[% c.uri_for('/editor/change_password') %]">Change Password</a></li>
+	    <li><a href="[% c.uri_for('/editor/preferences') %]">Preferences</a></li>
+	    <li><a href="[% c.uri_for('/editor/subscriptions') %]">Subscriptions</a></li>
+	    <li><a href="[% c.uri_for('/editor/subscribers') %]">Subscribers</a></li>
+	    <li><a href="[% c.uri_for('/editor/donate') %]">Check Donation Status</a></li>
+	    <li><a href="[% c.uri_for('/editor/logout') %]">Logout</a></li>
         </ul>
     </li>
 [%- ELSE -%]
     <li>
-        <a href="[% c.uri_for('/user/login') %]">Account</a>
+        <a href="[% c.uri_for('/editor/login') %]">Account</a>
         <ul>
-	    <li><a href="[% c.uri_for('/user/register') %]">Create an Account</a></li>
-	    <li><a href="[% c.uri_for('/user/login') %]">Login</a></li>
-	    <li><a href="[% c.uri_for('/user/forgot_password') %]">Forgot Password</a></li>
+	    <li><a href="[% c.uri_for('/editor/register') %]">Create an Account</a></li>
+	    <li><a href="[% c.uri_for('/editor/login') %]">Login</a></li>
+	    <li><a href="[% c.uri_for('/editor/forgot_password') %]">Forgot Password</a></li>
         </ul>
     </li>
 [%- END -%]

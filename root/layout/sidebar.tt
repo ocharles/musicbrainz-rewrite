@@ -5,11 +5,11 @@
     [% IF c.user_exists %]
         [% INCLUDE "layout/sidebar/user.tt"
             WRAPPER "layout/sidebar/section.tt" title=c.user.name
-                link="${c.uri_for('/user/')}" %]
+                link="${c.uri_for('/editor/')}" %]
     [% ELSE %]
         [% INCLUDE "layout/sidebar/login.tt"
             WRAPPER "layout/sidebar/section.tt" title="Not Logged In"
-                link="${c.uri_for('/user/login')}" %]
+                link="${c.uri_for('/editor/login')}" %]
     [% END %]
     
     [% INCLUDE "layout/sidebar/search.tt"

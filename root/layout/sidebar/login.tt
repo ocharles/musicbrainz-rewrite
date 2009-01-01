@@ -1,1 +1,1 @@
-[% login_form.as_p(action => c.uri_for('/user/login')) %]
+[% login_form.as_p(action => c.uri_for('/editor/login')) %]
