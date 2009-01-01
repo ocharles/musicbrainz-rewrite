@@ -8,9 +8,15 @@
         </thead>
         <tbody>
             [%- FOREACH editor IN artist.subscribed_editors -%]
-            <tr>
-                <td><a href="object_link(editor, 'profile')">[% editor.name %]</a></td>
-            </tr>
+                <tr>
+                    <td>
+                    [%- IF editor.preference('subscriptions_public') -%]
+                        <a href="object_link(editor, 'profile')">[% editor.name %]</a>
+                    [%- ELSE -%]
+                        (private)
+                    [%- END -%]
+                    </td>
+                </tr>
             [%- END -%]
         </tbody>
     </table>
