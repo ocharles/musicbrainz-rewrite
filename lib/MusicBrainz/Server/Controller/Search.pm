@@ -5,7 +5,7 @@ use warnings;
 
 use base 'Catalyst::Controller';
 
-sub external : Local
+sub search : Path('')
 {
     my ($self, $c) = @_;
 
