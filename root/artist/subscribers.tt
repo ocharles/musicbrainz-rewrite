@@ -11,7 +11,7 @@
                 <tr>
                     <td>
                     [%- IF editor.preference('subscriptions_public') -%]
-                        <a href="object_link(editor, 'profile')">[% editor.name %]</a>
+                        <a href="c.object_link(editor, 'profile')">[% editor.name %]</a>
                     [%- ELSE -%]
                         (private)
                     [%- END -%]

@@ -65,7 +65,7 @@
       <td>[% event.releasedate %]</td>
       <td>[% event.country.name %]</td>
       <td>
-        <a href="[% object_link(event.label, 'show') %]">
+        <a href="[% c.object_link(event.label, 'show') %]">
           [% event.label.name %]
         </a>
       </td>

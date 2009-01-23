@@ -27,7 +27,7 @@
             <tr>
                 <th>Permanent link</th>
                 <td>
-                    [%- link = object_link(artist, 'show') -%]
+                    [%- link = c.object_link(artist, 'show') -%]
                     <a href="[% link %]">[% link %]</a>
                 </td>
             </tr>

@@ -68,6 +68,19 @@ __PACKAGE__->config->{'Plugin::Authentication'} = {
 # Start the application
 __PACKAGE__->setup();
 
+sub object_link {
+    my ($self, $object, $action_name, @args) = @_;
+
+    my $object_name = ref $object;
+    my ($controller_name) = ($object_name =~ /.*::([A-Za-z]+)/);
+
+    my $action = $self->controller($controller_name)->action_for($action_name)
+        or die "$object_name does not have an $action_name action";
+
+    my $id = $object->can('gid') ? $object->gid : $object->id;
+
+    return $self->uri_for($action, [ $id ], @args);
+};
 
 =head1 NAME
 

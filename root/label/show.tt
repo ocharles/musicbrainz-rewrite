@@ -3,12 +3,12 @@
 <div class="entity_header label_header">
   <div class="information">
     <h1>
-      <a href="[% object_link(label, 'show') %]">[% label.name %]</a>
+      <a href="[% c.object_link(label, 'show') %]">[% label.name %]</a>
       [% "($label.resolution)" IF label.resolution -%]
     </h1>
   </div>
   <div class="info_links">
-    Info: <a href="[% object_link(label, 'show') %]">Releases</a>
+    Info: <a href="[% c.object_link(label, 'show') %]">Releases</a>
   </div>
   <div class="edit_links">
     Edit: <a href="[% c.uri_for('/editor/login') %]">Please login to edit this data</a>
