@@ -1,0 +1,3 @@
+<form action="[% action || c.req.uri %]" method="[% method || 'GET' %]">
+    [%- content -%]
+</form>

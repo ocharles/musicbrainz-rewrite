@@ -1,0 +1,3 @@
+[%- id = "id-field-$field.form.name-$field.name" -%]
+
+<label for="[% id %]">[% label %]</label>

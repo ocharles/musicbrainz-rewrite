@@ -4,14 +4,12 @@ use Form::Moose;
 field 'user_name' => (
     required => 1,
     constraints => [ 'SingleLine' ],
-    widget => 'Text',
     label => 'User name',
 );
 
 field 'password' => (
     required => 1,
     constraints => [ 'SingleLine' ],
-    widget => 'Password',
     label => 'Password',
 );
 

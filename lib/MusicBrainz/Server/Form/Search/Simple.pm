@@ -4,24 +4,20 @@ use Form::Moose;
 field 'query' => (
     constraints => [ 'SingleLine' ],
     required => 1,
-    widget => 'Text',
     label => 'Query',
 );
 
 field 'type' => (
     constraints => [ {
-        Option => {
-            options => {
-                artist => 'Artist',
-                label => 'Label',
-                release => 'Release',
-                track => 'Track',
-                editor => 'Editor',
-            }
-        },
+        Option => [
+            artist => 'Artist',
+            label => 'Label',
+            release => 'Release',
+            track => 'Track',
+            editor => 'Editor',
+        ]
     } ],
     required => 1,
-    widget => 'Combo',
     label => 'Search Type'
 );
 

@@ -9,8 +9,6 @@ __PACKAGE__->config->{namespace} = '';
 use MusicBrainz::Server::Form::Editor::Login;
 use MusicBrainz::Server::Form::Search::Simple;
 
-use Form::Moose::Renderer::Paragraphs;
-
 =head1 NAME
 
 MusicBrainz::Server::Controller::Root - Root Controller for MusicBrainz
@@ -56,21 +54,8 @@ Attempt to render a view, if needed.
 
 sub end : ActionClass('RenderView') {
     my ($self, $c) = @_;
-    $c->stash->{login_form} = MusicBrainz::Server::Form::Editor::Login->new;
-    $c->stash->{sidebar_search} = MusicBrainz::Server::Form::Search::Simple->new;
-    $c->stash->{object_link} = sub {
-        my ($object, $action_name, @args) = @_;
-        
-        my $object_name = ref $object;
-        my ($controller_name) = ($object_name =~ /.*::([A-Za-z]+)/);
-
-        my $action = $c->controller($controller_name)->action_for($action_name)
-            or die "$object_name does not have an $action_name action";
-            
-        my $id = $object->can('gid') ? $object->gid : $object->id;
-        
-        return $c->uri_for($action, [ $id ], @args);
-    };
+    $c->stash->{forms}->{sidebar}->{login}  = MusicBrainz::Server::Form::Editor::Login->new;
+    $c->stash->{forms}->{sidebar}->{search} = MusicBrainz::Server::Form::Search::Simple->new;
 }
 
 =head2 css

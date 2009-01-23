@@ -1,1 +1,10 @@
-[% sidebar_search.as_p(action => c.uri_for('/search/external'), method => 'GET') %]
+[%- WRAPPER "forms/form.tt" action=c.uri_for('/search') method="get" -%]
+    [% INCLUDE "forms/input.tt" field=forms.sidebar.search.type type='select' -%]
+    [% INCLUDE "forms/input.tt" field=forms.sidebar.search.query type='text' -%]
+
+    [% INCLUDE "forms/submit.tt" label="Search" %]
+
+    [% INCLUDE "forms/input.tt" field=forms.sidebar.search.enable_advanced type='checkbox' -%]
+    [% INCLUDE "forms/label.tt" for=forms.sidebar.search.enable_advanced
+        label=doc_link('TextSearchSyntax', 'Advanced Query') %]
+[% END %]
