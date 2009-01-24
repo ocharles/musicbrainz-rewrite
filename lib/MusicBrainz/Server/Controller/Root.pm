@@ -41,9 +41,23 @@ Generally means 404.
 
 sub default :Path
 {
-    my ( $self, $c ) = @_;
-    $c->response->body( 'Page not found' );
+    my ($self, $c) = @_;
+    $c->detach('do_404');
+}
+
+=head2 do_404
+
+Throw a 404 error and stop processing.
+
+=cut
+
+sub do_404 : Private
+{
+    my ($self, $c) = @_;
+
+    $c->stash->{template} = 'error/404.tt';
     $c->response->status(404);
+    $c->detach;
 }
 
 =head2 end
