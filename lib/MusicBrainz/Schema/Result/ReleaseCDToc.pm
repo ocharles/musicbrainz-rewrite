@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::ReleaseCDToc;
+package MusicBrainz::Schema::Result::ReleaseCDToc;
 
 use strict;
 use warnings;
@@ -14,7 +14,7 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->belongs_to(release  => 'MusicBrainz::Schema::Release', 'album');
-__PACKAGE__->belongs_to(disc_id  => 'MusicBrainz::Schema::DiscID', 'cdtoc');
+__PACKAGE__->belongs_to(release  => 'MusicBrainz::Schema::Result::Release', 'album');
+__PACKAGE__->belongs_to(disc_id  => 'MusicBrainz::Schema::Result::DiscID', 'cdtoc');
 
 1;

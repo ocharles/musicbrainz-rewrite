@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::Editor;
+package MusicBrainz::Schema::Result::Editor;
 
 use strict;
 use warnings;
@@ -15,14 +15,14 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->has_many(preferences => 'MusicBrainz::Schema::UserPreference', 'moderator');
+__PACKAGE__->has_many(preferences => 'MusicBrainz::Schema::Result::UserPreference', 'moderator');
 
 sub preference {
     my ($self, $key) = @_;
  
     my $value = $self->preferences->single({ name => $key });
     $value = defined $value ? $value 
-           : MusicBrainz::Schema::UserPreference->default_preference($key);
+           : MusicBrainz::Schema::Result::UserPreference->default_preference($key);
 
     return $value;
 }

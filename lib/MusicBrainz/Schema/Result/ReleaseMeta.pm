@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::ReleaseMeta;
+package MusicBrainz::Schema::Result::ReleaseMeta;
 
 use strict;
 use warnings;
@@ -12,6 +12,6 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->belongs_to(release => 'MusicBrainz::Schema::Release', 'id');
+__PACKAGE__->belongs_to(release => 'MusicBrainz::Schema::Result::Release', 'id');
 
 1;

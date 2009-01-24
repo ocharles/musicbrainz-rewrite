@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::Country;
+package MusicBrainz::Schema::Result::Country;
 
 use strict;
 use warnings;

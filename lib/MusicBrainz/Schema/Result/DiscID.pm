@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::DiscID;
+package MusicBrainz::Schema::Result::DiscID;
 
 use strict;
 use warnings;
@@ -14,7 +14,7 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->has_many(release_tocs => 'MusicBrainz::Schema::ReleaseCDToc', 'cdtoc');
+__PACKAGE__->has_many(release_tocs => 'MusicBrainz::Schema::Result::ReleaseCDToc', 'cdtoc');
 
 sub duration
 {

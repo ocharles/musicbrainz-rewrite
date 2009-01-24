@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::Release;
+package MusicBrainz::Schema::Result::Release;
 
 use strict;
 use warnings;
@@ -15,19 +15,19 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->belongs_to(artist   => 'MusicBrainz::Schema::Artist');
-__PACKAGE__->belongs_to(language => 'MusicBrainz::Schema::Language', 'language');
-__PACKAGE__->belongs_to(script   => 'MusicBrainz::Schema::Script', 'script');
+__PACKAGE__->belongs_to(artist   => 'MusicBrainz::Schema::Result::Artist');
+__PACKAGE__->belongs_to(language => 'MusicBrainz::Schema::Result::Language', 'language');
+__PACKAGE__->belongs_to(script   => 'MusicBrainz::Schema::Result::Script', 'script');
 
-__PACKAGE__->has_many(release_tocs => 'MusicBrainz::Schema::ReleaseCDToc', 'album');
+__PACKAGE__->has_many(release_tocs => 'MusicBrainz::Schema::Result::ReleaseCDToc', 'album');
 __PACKAGE__->many_to_many(disc_ids => 'release_tocs', 'disc_id');
 
-__PACKAGE__->has_one(meta => 'MusicBrainz::Schema::ReleaseMeta', 'id');
+__PACKAGE__->has_one(meta => 'MusicBrainz::Schema::Result::ReleaseMeta', 'id');
 
-__PACKAGE__->has_many(release_tracks => 'MusicBrainz::Schema::ReleaseTrack', 'album');
+__PACKAGE__->has_many(release_tracks => 'MusicBrainz::Schema::Result::ReleaseTrack', 'album');
 __PACKAGE__->many_to_many(tracks => 'release_tracks', 'track');
 
-__PACKAGE__->has_many(release_events => 'MusicBrainz::Schema::ReleaseEvent', 'album');
+__PACKAGE__->has_many(release_events => 'MusicBrainz::Schema::Result::ReleaseEvent', 'album');
 
 sub sequenced_tracks
 {

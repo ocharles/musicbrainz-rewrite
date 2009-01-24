@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::Label;
+package MusicBrainz::Schema::Result::Label;
 
 use strict;
 use warnings;
@@ -13,7 +13,10 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->has_many(release_events => 'MusicBrainz::Schema::ReleaseEvent', 'label');
-__PACKAGE__->many_to_many(releases => 'release_events', 'release', { order_by => [ 'releasedate', 'catno', 'release.name' ] });
+__PACKAGE__->has_many(release_events => 'MusicBrainz::Schema::Result::ReleaseEvent', 'label');
+__PACKAGE__->many_to_many(
+    releases => 'release_events', 'release',
+    { order_by => [ 'releasedate', 'catno', 'release.name' ] }
+);
 
 1;

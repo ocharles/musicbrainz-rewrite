@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::Artist;
+package MusicBrainz::Schema::Result::Artist;
 use Moose;
 
 extends 'DBIx::Class', 'Moose::Object';
@@ -14,11 +14,11 @@ __PACKAGE__->add_columns(qw/
 /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->has_many(releases => 'MusicBrainz::Schema::Release', 'artist');
-__PACKAGE__->has_many(aliases  => 'MusicBrainz::Schema::ArtistAlias', 'ref');
+__PACKAGE__->has_many(releases => 'MusicBrainz::Schema::Result::Release', 'artist');
+__PACKAGE__->has_many(aliases  => 'MusicBrainz::Schema::Result::Alias::Artist', 'ref');
 
 __PACKAGE__->has_many(
-    artist_subscribed_editors => 'MusicBrainz::Schema::Subscribe::Artist', 'artist'
+    artist_subscribed_editors => 'MusicBrainz::Schema::Result::Subscribe::Artist', 'artist'
 );
 __PACKAGE__->many_to_many(subscribed_editors => 'artist_subscribed_editors', 'editor');
 

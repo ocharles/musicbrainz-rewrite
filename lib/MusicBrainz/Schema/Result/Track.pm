@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::Track;
+package MusicBrainz::Schema::Result::Track;
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ __PACKAGE__->add_columns(qw/
 /,);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->belongs_to('artist' => 'MusicBrainz::Schema::Artist');
-__PACKAGE__->has_many('track_releases' => 'MusicBrainz::Schema::ReleaseTrack');
+__PACKAGE__->belongs_to('artist' => 'MusicBrainz::Schema::Result::Artist');
+__PACKAGE__->has_many('track_releases' => 'MusicBrainz::Schema::Result::ReleaseTrack');
 
 1;

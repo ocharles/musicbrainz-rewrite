@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::UserPreference;
+package MusicBrainz::Schema::Result::UserPreference;
 
 use strict;
 use warnings;
@@ -10,7 +10,7 @@ __PACKAGE__->table('moderator_preference');
 __PACKAGE__->add_columns(qw/ id moderator name value /);
 __PACKAGE__->set_primary_key('id');
 
-__PACKAGE__->belongs_to(editor => 'MusicBrainz::Schema::Editor', 'moderator');
+__PACKAGE__->belongs_to(editor => 'MusicBrainz::Schema::Result::Editor', 'moderator');
 
 use Readonly;
 Readonly::Hash our %DEFAULT_PREFERENCES => (

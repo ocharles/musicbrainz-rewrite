@@ -1,4 +1,4 @@
-package MusicBrainz::Schema::Language;
+package MusicBrainz::Schema::Result::Script;
 
 use strict;
 use warnings;
@@ -6,9 +6,9 @@ use warnings;
 use base 'DBIx::Class';
 
 __PACKAGE__->load_components(qw/ PK::Auto Core /);
-__PACKAGE__->table('language');
+__PACKAGE__->table('script');
 __PACKAGE__->add_columns(qw/
-    id isocode_3t isocode_3b isocode_2 name frequency
+    id isocode isonumber name frequency
 /);
 __PACKAGE__->set_primary_key('id');
 
