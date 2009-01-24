@@ -1,5 +1,5 @@
-[%- WRAPPER "forms/form.tt" action=c.uri_for('/search') method="get" -%]
-    [% INCLUDE "forms/input.tt" field=forms.sidebar.login.user_name
+[%- WRAPPER "forms/form.tt" action=c.uri_for('/editor/login') -%]
+    [% INCLUDE "forms/input.tt" field=forms.sidebar.login.username
         type='text' class="text" -%]
     [% INCLUDE "forms/input.tt" field=forms.sidebar.login.password
         type='password' class="text" -%]

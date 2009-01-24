@@ -1,0 +1,10 @@
+[%- WRAPPER 'layout.tt' title='Login' -%]
+    [%- WRAPPER 'comp/box.tt' title='Login' -%]
+        [% WRAPPER 'forms/form.tt' %]
+            [% INCLUDE 'forms/generic/row.tt' field=form.username type='text' label='Username:' %]
+            [% INCLUDE 'forms/generic/row.tt' field=form.password type='password' label='Password:' %]
+            
+            [% INCLUDE 'forms/generic/submit.tt' %]
+        [% END %]
+    [%- END -%]
+[%- END -%]

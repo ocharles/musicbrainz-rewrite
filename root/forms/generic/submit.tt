@@ -1,0 +1,3 @@
+<div class="row empty">
+    [% INCLUDE 'forms/submit.tt' %]
+</div>

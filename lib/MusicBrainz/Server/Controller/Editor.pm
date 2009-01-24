@@ -5,14 +5,13 @@ use warnings;
 
 use base 'Catalyst::Controller';
 
+use MusicBrainz::Server::Form::Editor::Login;
+
 sub login : Private
 {
     my ($self, $c) = @_;
+    return 1 if $c->user_exists;
 
-    return 1
-        if $c->user_exists;
-
-    use MusicBrainz::Server::Form::Editor::Login;
     my $form = MusicBrainz::Server::Form::Editor::Login->new();
 
     $c->stash->{template} = 'editor/login.tt';
@@ -23,17 +22,15 @@ sub login : Private
 
     $c->detach unless $form->submitted_and_validated($c->req->params);
 
-    if( !$c->authenticate({ username => $form->username->clean,
-                            password => $form->password->clean }) )
+    if( !$c->authenticate({ name     => $form->username->dirty,
+                            password => $form->password->dirty }) )
     {
         $form->add_general_error('Username/password combination invalid');
         $c->detach;
     }
     else
     {
-        if ($form->value('remember_me'))
-        {
-        }
+        # In - remember me cookie
     }
 
     $c->response->redirect(delete $c->session->{__login_dest});
@@ -60,5 +57,12 @@ sub logout :Local
     $c->logout;
     $c->response->redirect($c->req->referer);
 }
+
+sub user : Chained('/') PathPart('user') CaptureArgs(1) {
+    my ($self, $c, $name) = @_;
+    $c->stash->{user} = $c->model('MainDB::Editor')->load({ name => $name });
+}
+
+sub profile : Chained('/user') { }
 
 1;

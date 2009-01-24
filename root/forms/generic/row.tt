@@ -1,0 +1,4 @@
+<div class="row">
+    [% INCLUDE 'forms/label.tt' for=field %]
+    [% INCLUDE 'forms/input.tt' %]
+</div>
