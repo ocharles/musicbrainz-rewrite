@@ -1,0 +1,135 @@
+[%- title="Profile for '$user.name'" -%]
+
+[%- WRAPPER 'layout.tt' -%]
+[%- WRAPPER 'comp/box.tt' %]
+    <h3>General Information</h3>
+    <table class="definition">
+        <tbody>
+            <tr>
+                <th>Review:</th>
+                <td>
+                    [%- pipe_list([
+                        { to => c.uri_for('/review/user', user.name, 'votes'), text => 'Votes' },
+                        { to => c.uri_for('/review/user', user.name, 'edits'), text => 'Edits' },
+                        { to => c.uri_for('/review/user', user.name, 'edits/open'), text => 'Open Edits' },
+                        { to => c.uri_for('/review/user', user.name, 'edits/failed'), text => 'Failed Edits' }
+                        { to => c.uri_for('/review/user', user.name, 'edits/cancelled'), text => 'Cancelled Edits' },
+                        { to => c.uri_for('/user', user.name, 'subscriptions'), text => 'Subscriptions' },
+                        { to => c.uri_for('/user', user.name, 'tags'), text => 'Tags' },
+                        { to => c.uri_for('/user', user.name, 'Ratings'), text => 'Ratings' }
+                    ]) -%]
+                </td>
+            </tr>
+            [% IF user.name == c.user.name %]
+            <tr>
+                <th>Edit my account:</th>
+                <td>
+                    [%- pipe_list([
+                        { to => c.uri_for('/user/edit_profile'), text => 'Edit Profile' },
+                        { to => c.uri_for('/user/change_password'), text => 'Change Password' },
+                        { to => c.uri_for('/user/preferences'), text => 'Preferences' },
+                    ]) -%]
+                </td>
+            </tr>
+            [%- ELSE -%]
+            <tr>
+                <th>Contact:</th>
+                <td></td>
+            </tr>
+            [%- END -%]
+            <tr>
+                <th>Name:</th>
+                <td> [% user.name %]</td>
+            </tr>
+            <tr>
+                <th>Type:</th>
+                <td>
+                    [%- types = [];
+                        types.push(doc_link('AutoEditor', 'Auto-Editor')) IF user.is_auto_editor;
+                        types.push("Internal/Bot") IF user.is_bot;
+                        types.push(doc_link('RelationshipEditor', 'Relationship Editor')) IF user.is_link_moderator;
+                        types.push(doc_link('TransclusionEditor', 'Transclusion Editor')) IF user.is_wiki_transcluder 
+                    -%]
+
+            		[% types.push('Normal User') IF types.size == 0 %]
+            		
+            		[%- comma_list(types) -%]
+                </td>
+            </tr>
+            <tr>
+                <th>Website:</th>
+                <td>[% (user.weburl || "(none)") | url %]</td>
+            </tr>
+            <tr>
+                <th>Biography:</th>
+                <td>
+                    <p class="bio">[% (user.bio || "(none)") | html %]</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Editing Statistics</h3>
+    <table class="definition">
+        <tbody>
+            <tr>
+                <th>Member Since:</th>
+                <td>[% user.membersince %]</td>
+            </tr>
+            <tr>
+                <th>Excepted Edits</th>
+                <td>[% user.modsaccepted %] (<em>excludes autoedits</em>)</td>
+            </tr>
+            <tr>
+                <th>Autoedits:</th>
+                <td>[% user.automodsaccepted %]</td>
+            </tr>
+            <tr>
+                <th>Edits Voted Down:</th>
+                <td>[% user.modsrejected %]</td>
+            </tr>
+            <tr>
+                <th>Other Failed Edits:</th>
+                <td>[% user.modsfailed %]</td>
+            </tr>
+            <tr>
+                <th>Voting Statistics</th>
+                <td>
+                    <table class="statistics">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <th>Last 28 Days</th>
+                                <th>All Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Yes:</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>No:</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Abstain:</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="new_section">
+                                <th>Total:</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+[%- END -%]
+[%- END -%]

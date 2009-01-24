@@ -9,3 +9,24 @@ id-field-[% field.form.meta.form_name %]-[% field.name %]
 [%- MACRO quick_link(href, text) BLOCK -%]
 <a href="[% c.uri_for(href) %]">[% text %]</a>
 [%- END -%]
+
+[%- MACRO comma_list(items) BLOCK %]
+    [%- FOREACH item IN items -%]
+        [%- item -%]
+        [%- loop.count == (loop.size - 1) ? " and " : !loop.last ? ", " : "" -%]
+    [%- END -%]
+[%- END -%]
+
+[%- MACRO pipe_list(links) BLOCK -%]
+<div class="piped_list">
+    <ul>
+        [%- FOREACH link IN links -%]
+        <li><a href="[% link.to %]">[% link.text %]</a></li>
+        [%- END -%]
+    </ul>
+</div>
+[%- END -%]
+
+[%- MACRO wrap_text(text, start, end) BLOCK;
+    text ? "${start}${text}${end}" : '';
+END -%]

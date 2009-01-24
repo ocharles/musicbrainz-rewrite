@@ -218,13 +218,13 @@ a.mp { background: #FFFFCC; }
 /*
  * Boxes
  */
-div.box {
+#content div.box {
     border: 1px solid #FFBB55;
     margin-bottom: 16pt;
     overflow: auto;
 }
 
-div.box h2 {
+#content div.box h2 {
     border-bottom: 1px solid #FFBB55;
     margin: 0;
     padding: 2pt 4pt;
@@ -237,15 +237,11 @@ div.purple h2 {
     border-bottom: 1px solid #736DAB;
 }
 
-div.purple {
-    border: 1px solid #736DAB;
-}
-
-div.box div.content {
+#content div.box div.content {
     padding: 5pt;
 }
 
-div.bio { 
+p.bio { 
     width: 90%;
     border: 1px dotted #CCC; 
     padding: 0px 5px 5px 5px; 
@@ -477,4 +473,64 @@ table.discids .length {
     float: left;
     margin: 0.1em .5em 0.1em -.5em;
     padding: 0 .5em 0 .5em;
+}
+
+#content table.definition td,
+#content table.definition th,
+#content table.definition tr {
+    border: none;
+}
+
+#content table.definition th {
+    font-weight: bold;
+    text-align: right;
+    width: 150pt;
+    padding-right: 10pt;
+}
+
+#content table.definition td,
+#content table.definition th {
+    vertical-align: top;
+}
+
+#content table.statistics {
+    border-collapse: collapse;
+    margin-bottom: 12pt;
+    width: auto;
+}
+
+#content table.statistics,
+#content table.statistics td,
+#content table.statistics th {
+    border: 1px solid #c0c0c0;
+}
+
+#content table.statistics td,
+#content table.statistics th {
+    padding: 5pt;
+}
+
+#content table.statistics th {
+    background: #eee;
+}
+
+#content table.statistics thead th,
+#content table.statistics tbody td {
+    text-align: center;
+}
+
+#content table.statistics th.odd_col {
+    background: #e0e0e0;
+}
+
+#content table.statistics th.even_col {
+    background: #f3f3f3;
+}
+
+#content table.statistics td.odd_col {
+    background: #eaeaea;
+}
+
+#content table.statistics tr.separator th {
+    background: #d0d0d0;
 }

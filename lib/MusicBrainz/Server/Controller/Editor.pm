@@ -58,11 +58,11 @@ sub logout :Local
     $c->response->redirect($c->req->referer);
 }
 
-sub user : Chained('/') PathPart('user') CaptureArgs(1) {
+sub user : Chained('/') PathPart('editor') CaptureArgs(1) {
     my ($self, $c, $name) = @_;
-    $c->stash->{user} = $c->model('MainDB::Editor')->load({ name => $name });
+    $c->stash->{user} = $c->model('MainDB::Editor')->find({ name => $name });
 }
 
-sub profile : Chained('/user') { }
+sub profile : Chained('user') { }
 
 1;

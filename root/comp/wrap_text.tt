@@ -1,3 +1,0 @@
-[%- MACRO wrap_text(text, start, end) BLOCK;
-    text ? "${start}${text}${end}" : '';
-END -%]
