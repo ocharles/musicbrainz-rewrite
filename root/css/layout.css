@@ -119,21 +119,6 @@ a.mp { background: #FFFFCC; }
     padding: 6pt;
 }
 
-#sidebar label {
-    font-size: 8pt;
-}
-
-#sidebar input, #sidebar select {
-    width: 50pt;
-    background: #eee;
-    border: 1px inset;
-    font-size: 8pt;
-}
-
-#sidebar .labelRight {
-    margin-left: 32pt;
-}
-
 #sidebar img {
     margin: auto;
     display: block;
@@ -189,6 +174,31 @@ a.mp { background: #FFFFCC; }
 
 #sidebar table.details td {
     padding-left: 5pt;
+}
+
+#sidebar input, #sidebar select {
+    font-size: 9pt;
+    margin-left: -2px;
+    margin-bottom: 2pt;
+}
+
+#sidebar input.text {
+    width: 112px;
+}
+
+#sidebar select {
+    width: 118px;
+}
+
+#sidebar form .submit {
+    width: auto;
+    margin-top: 6pt;
+    display: block;
+    margin: auto;
+}
+
+#sidebar label {
+    font-size: 8pt;
 }
 
 /*
@@ -256,26 +266,6 @@ table.details th {
 
 /* Nested details tables look dumb */
 table.details table.details th { font-weight: normal; }
-
-#sidebar form input,
-#sidebar form select {
-    font-size: 14pt;
-    width: 90%;
-}
-
-#sidebar form p {
-    margin-bottom: 2pt;
-}
-
-#sidebar form .submit {
-    width: auto;
-    margin-top: 6pt;
-}
-
-#sidebar form label {
-    position: absolute;
-    left: -9001pt;       /* OVER 9000?! */
-}
 
 hr {
     height: 1px;

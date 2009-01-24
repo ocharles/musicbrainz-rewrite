@@ -1,0 +1,11 @@
+[%- MACRO doc_link(to, text) BLOCK -%]
+<a href="[% c.uri_for('doc', to) %]">[% text || to %]</a>
+[%- END -%]
+
+[%- MACRO field_id(field) BLOCK -%]
+id-field-[% field.form.meta.form_name %]-[% field.name %]
+[%- END -%]
+
+[%- MACRO quick_link(href, text) BLOCK -%]
+<a href="[% c.uri_for(href) %]">[% text %]</a>
+[%- END -%]

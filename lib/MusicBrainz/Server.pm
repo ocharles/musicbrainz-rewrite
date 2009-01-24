@@ -45,6 +45,7 @@ __PACKAGE__->config(
     'View::Default' => {
         TEMPLATE_EXTENSION => '.tt',
         PLUGIN_BASE        => 'MusicBrainz::Server::Plugin',
+        PRE_PROCESS        => 'macros.tt',
     },
 );
 

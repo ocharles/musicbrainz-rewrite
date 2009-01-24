@@ -1,6 +1,7 @@
 [%- WRAPPER "forms/form.tt" action=c.uri_for('/search') method="get" -%]
     [% INCLUDE "forms/input.tt" field=forms.sidebar.search.type type='select' -%]
-    [% INCLUDE "forms/input.tt" field=forms.sidebar.search.query type='text' -%]
+    [% INCLUDE "forms/input.tt" field=forms.sidebar.search.query
+        type='text' class="text" -%]
 
     [% INCLUDE "forms/submit.tt" label="Search" %]
 

@@ -1,4 +1,4 @@
-[%- id = "id-field-$field.form.name-$field.name"
+[%- id = field_id(field)
     classes = class.split('\s+')
     class_html = classes.size ? 'class="' _ classes.join(' ') _ '"' : ''
 -%]
@@ -10,5 +10,5 @@
         [%- END -%]
     </select>
 [%- ELSE -%]
-    <input type="[% type %]" name="[% field.name %]" id="[% id %]" >
+    <input type="[% type %]" name="[% field.name %]" id="[% id %]"  [% class_html %]>
 [%- END -%]

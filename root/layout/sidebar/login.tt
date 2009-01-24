@@ -1,1 +1,8 @@
-[% login_form.as_p(action => c.uri_for('/editor/login')) %]
+[%- WRAPPER "forms/form.tt" action=c.uri_for('/search') method="get" -%]
+    [% INCLUDE "forms/input.tt" field=forms.sidebar.login.user_name
+        type='text' class="text" -%]
+    [% INCLUDE "forms/input.tt" field=forms.sidebar.login.password
+        type='password' class="text" -%]
+
+    [% INCLUDE "forms/submit.tt" label="Login" %]
+[% END %]
