@@ -3,7 +3,7 @@ use Form::Moose;
 
 form_name 'user-login';
 
-field 'user_name' => (
+field 'username' => (
     required => 1,
     constraints => [ 'SingleLine' ],
     label => 'User name',
