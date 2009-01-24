@@ -63,10 +63,13 @@ sub end_date_label
 sub merge_into {
     my ($self, $destination) = @_;
 
-    $self->aliases->update({ ref => $destination->id });
-    $self->releases->update({ artist => $destination->id });
+    my $d_id = $destination->id;
+    $self->aliases->update({ ref => $d_id });
+    $self->releases->update({ artist => $d_id });
+    $self->annotations->update({ rowid => $d_id });
 
     $self->delete;
+    return $destination;
 }
 
 sub annotations {

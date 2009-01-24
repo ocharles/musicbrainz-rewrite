@@ -3,7 +3,7 @@ use warnings;
 
 use Data::UUID;
 use MusicBrainz::Utils qw/ valid_uuid /;
-use Test::More tests => 14;
+use Test::More tests => 15;
 use Test::Exception;
 
 BEGIN { use_ok('MusicBrainz::Schema'); }
@@ -17,6 +17,11 @@ my $artist_rs     = $schema->resultset('Artist');
 $schema->txn_begin;
 
 # Create test data
+my $editor = $schema->resultset('Editor')->create({
+    name     => 'Fake',
+    password => 'fake',
+});
+my $mod_count;
 my ($source, $target) = create_artists();
 
 # Do the merge
@@ -34,6 +39,9 @@ is($target->aliases->count, 2, 'should have 2 aliases');
 
 # Check releases
 is($target->releases->count, 2, 'should have 2 releases');
+
+# Check annotations
+is($target->annotations->count, 2, 'should have 2 annotations');
 
 # Clean up
 $schema->txn_rollback;
@@ -74,5 +82,12 @@ sub create_artist {
 
     $artist->create_related('aliases', { name => "$name alias" });
 
-    return $artist
+    $artist->annotations->create_artist_annotation({
+        artist => $artist,
+        editor => $editor,
+        text   => 'An annotation',
+        moderation => $mod_count++,
+    });
+
+    return $artist;
 }
