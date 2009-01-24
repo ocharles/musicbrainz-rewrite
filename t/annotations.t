@@ -7,7 +7,6 @@ use Test::More tests => 29;
 BEGIN { use_ok('MusicBrainz::Schema'); }
 my $schema = MusicBrainz::Schema->connect('DBI:Pg:dbname=musicbrainz_db_test', 'musicbrainz_user');
 
-# Integrity
 my $annotations_rs = $schema->resultset('Annotation');
 my $artist_rs = $schema->resultset('Artist');
 my $label_rs = $schema->resultset('Label');
@@ -15,7 +14,7 @@ my $release_rs = $schema->resultset('Release');
 my $track_rs = $schema->resultset('Track');
 my $editor_rs = $schema->resultset('Editor');
 
-clean_up();
+$schema->txn_begin;
 
 my $artist = $artist_rs->create({
     name => 'Foo',
@@ -55,7 +54,7 @@ annotate($release, 'release', 2);
 annotate($label, 'label', 3);
 annotate($track, 'track', 4);
 
-clean_up();
+$schema->txn_rollback;
 
 sub annotate {
     my ($object, $type, $t) = @_;
@@ -83,13 +82,4 @@ sub annotate {
     isa_ok($object->annotations, 'MusicBrainz::Schema::ResultSet::Annotation');
     is($object->annotations->count, 2, "$type should have 2 annotations");
     is($object->annotations->latest->id, $newer_annotation->id, "$type latest is incorrect");
-}
-
-sub clean_up {
-    $editor_rs->delete;
-    $annotations_rs->delete;
-    $label_rs->delete;
-    $track_rs->delete;
-    $release_rs->delete;
-    $artist_rs->delete;
 }
