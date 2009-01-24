@@ -1,9 +1,0 @@
-[%- MACRO date_period(begin, end)
-    IF begin && end;
-        "${begin} - ${end}";
-    ELSIF begin;
-        "${artist.begin_date_label}: ${begin}";
-    ELSIF end;
-        "${artist.end_date_label}: ${end}";
-    END
--%]

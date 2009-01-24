@@ -1,7 +1,3 @@
-[%- PROCESS 'comp/date_period.tt' -%]
-[%- PROCESS 'comp/wrap_text.tt' -%]
-[%- PROCESS 'comp/pipe_list.tt' -%]
-
 <div class="entity_header artist_header">
     <div class="information">
         <h1>

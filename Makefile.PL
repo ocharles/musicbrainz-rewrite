@@ -5,17 +5,18 @@ use inc::Module::Install;
 name 'MusicBrainz-Server';
 all_from 'lib/MusicBrainz/Server.pm';
 
-requires 'Data::Page';
-requires 'DBIx::Class';
+requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::Authentication::Store::DBIx::Class';
+requires 'Catalyst::Model::Adaptor';
 requires 'Catalyst::Model::DBIC::Schema';
-requires 'Readonly';
-
-requires 'Catalyst::Runtime' => '5.7014';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';
-requires 'Catalyst::Action::RenderView';
+requires 'Catalyst::Runtime' => '5.7014';
 requires 'Catalyst::View::TT';
+
+requires 'Data::Page';
+requires 'DBIx::Class';
+requires 'Readonly';
 requires 'parent';
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats

@@ -30,3 +30,13 @@ id-field-[% field.form.meta.form_name %]-[% field.name %]
 [%- MACRO wrap_text(text, start, end) BLOCK;
     text ? "${start}${text}${end}" : '';
 END -%]
+
+[%- MACRO date_period(begin, end)
+    IF begin && end;
+        "${begin} - ${end}";
+    ELSIF begin;
+        "${artist.begin_date_label}: ${begin}";
+    ELSIF end;
+        "${artist.end_date_label}: ${end}";
+    END
+-%]
