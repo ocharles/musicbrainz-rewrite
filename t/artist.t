@@ -2,7 +2,8 @@ use strict;
 use warnings;
 
 use Data::UUID;
-use Test::More tests => 12;
+use MusicBrainz::Utils qw/ valid_uuid /;
+use Test::More tests => 16;
 use Test::Exception;
 
 BEGIN { use_ok('MusicBrainz::Schema'); }
@@ -42,19 +43,8 @@ $release_rs->delete;
 $artist_rs->delete;
 
 sub create_artists {
-    my $source = $artist_rs->create({
-        name     => 'Source Artist',
-        sortname => 'Artist, Source',
-        gid      => lc Data::UUID->new->create_str,
-        page     => 0,
-    });
-
-    my $target = $artist_rs->create({
-        name     => 'Dest Artist',
-        sortname => 'Artist, Dest',
-        gid      => lc Data::UUID->new->create_str,
-        page     => 0,
-    });
+    my $source = create_artist('Source Artist');
+    my $target = create_artist('Dest Artist');
 
     is($artist_rs->count, 2, 'confused about artist count');
 
@@ -63,6 +53,21 @@ sub create_artists {
     create_releases($source);
 
     return ($source, $target);
+}
+
+sub create_artist {
+    my $name = shift;
+
+    my $artist = $artist_rs->create({
+        name     => 'Source Artist',
+        sortname => 'Artist, Source',
+        page     => 0,
+    });
+
+    isnt($artist->gid, '', 'no mbid');
+    ok(valid_uuid($artist->gid), 'invalid mbid');
+
+    return $artist
 }
 
 sub create_aliases {

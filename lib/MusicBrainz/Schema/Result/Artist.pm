@@ -4,6 +4,7 @@ use Moose;
 extends 'DBIx::Class', 'Moose::Object';
 with 'MusicBrainz::Role::Quality';
 
+use Data::UUID;
 use Readonly;
 
 __PACKAGE__->load_components(qw/ PK::Auto Core /);
@@ -31,6 +32,15 @@ my %artist_type_names = (
     $ARTIST_TYPE_PERSON  => [ 'Person', 'Born', 'Deceased' ],
     $ARTIST_TYPE_GROUP   => [ 'Group', 'Founded', 'Dissolved' ],
 );
+
+sub new {
+    my ($class, $attrs) = @_;
+
+    $attrs->{gid} = lc Data::UUID->new->create_str
+        unless defined $attrs->{foo};
+
+    return $class->next::method($attrs);
+}
 
 sub type_name
 {
