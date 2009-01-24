@@ -60,7 +60,7 @@ sub logout :Local
 
 sub user : Chained('/') PathPart('editor') CaptureArgs(1) {
     my ($self, $c, $name) = @_;
-    $c->stash->{user} = $c->model('MainDB::Editor')->find({ name => $name });
+    $c->stash->{user} = $c->model('MainDB::Editor')->single({ name => $name });
 }
 
 sub profile : Chained('user') { }

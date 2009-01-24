@@ -9,7 +9,7 @@ sub load :Chained('/') :PathPart('label') :CaptureArgs(1)
 {
     my ($self, $c, $mbid) = @_;
 
-    $c->stash->{label} = $c->model('MainDB::Label')->find({ gid => $mbid });
+    $c->stash->{label} = $c->model('MainDB::Label')->single({ gid => $mbid });
 }
 
 sub show :Chained('load') :PathPart('')

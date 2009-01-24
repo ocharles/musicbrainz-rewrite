@@ -9,7 +9,7 @@ sub load :Chained('/') :PathPart('release') :CaptureArgs(1)
 {
     my ($self, $c, $mbid) = @_;
 
-    $c->stash->{release} = $c->model('MainDB::Release')->find({ gid => $mbid });
+    $c->stash->{release} = $c->model('MainDB::Release')->single({ gid => $mbid });
 }
 
 sub show :Chained('load') :PathPart('')

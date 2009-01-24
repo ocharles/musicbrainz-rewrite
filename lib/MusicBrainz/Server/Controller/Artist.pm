@@ -9,7 +9,7 @@ sub load :Chained('/') PathPart('artist') :CaptureArgs(1)
 {
     my ($self, $c, $mbid) = @_;
 
-    $c->stash->{artist} = $c->model('MainDB::Artist')->find({ gid => $mbid });
+    $c->stash->{artist} = $c->model('MainDB::Artist')->single({ gid => $mbid });
 }
 
 sub show :Chained('load') :PathPart('')
