@@ -76,7 +76,7 @@ sub object_link {
     my ($controller_name) = ($object_name =~ /.*::([A-Za-z]+)/);
 
     my $action = $self->controller($controller_name)->action_for($action_name)
-        or die "$object_name does not have an $action_name action";
+        or warn "$object_name does not have an $action_name action";
 
     my $id = $object->can('gid') ? $object->gid : $object->id;
 
