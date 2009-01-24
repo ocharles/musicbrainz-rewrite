@@ -6,3 +6,8 @@
 
     [% INCLUDE "forms/submit.tt" label="Login" %]
 [% END %]
+
+<ul>
+    <li>[% quick_link('/user/register', 'Create account') %]</li>
+    <li>[% quick_link('/user/forgot_password', 'Forgot Password') %]</li>
+</ul>
