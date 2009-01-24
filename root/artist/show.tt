@@ -1,4 +1,6 @@
 [%- WRAPPER 'artist/layout.tt' title=artist.name -%]
+    [%- INCLUDE 'comp/annotation.tt' annotation=artist.annotations.latest -%]
+
     <h2>Releases</h2>
     [%- INCLUDE 'release/release_listing.tt' -%]
 [%- END -%]

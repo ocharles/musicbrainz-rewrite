@@ -59,4 +59,10 @@ sub merge_into {
     $self->delete;
 }
 
+sub annotations {
+    my ($self) = @_;
+    my $schema = $self->result_source->schema;
+    $schema->resultset('Annotation')->for_artist($self);
+}
+
 1;

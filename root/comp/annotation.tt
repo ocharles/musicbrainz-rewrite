@@ -1,0 +1,5 @@
+<div class="annotation">
+    <div class="body">
+        [% annotation.text %]
+    </div>
+</div>

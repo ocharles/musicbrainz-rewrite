@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Data::UUID;
-use Test::More tests => 11;
+use Test::More tests => 12;
 use Test::Exception;
 
 BEGIN { use_ok('MusicBrainz::Schema'); }
@@ -35,6 +35,11 @@ is($target->aliases->count, 2, 'should have 2 aliases');
 
 # Check releases
 is($target->releases->count, 2, 'should have 2 releases');
+
+# Clean up
+$alias_rs->delete;
+$release_rs->delete;
+$artist_rs->delete;
 
 sub create_artists {
     my $source = $artist_rs->create({
