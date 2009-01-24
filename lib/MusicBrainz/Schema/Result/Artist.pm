@@ -10,7 +10,7 @@ __PACKAGE__->load_components(qw/ PK::Auto Core /);
 __PACKAGE__->table('artist');
 __PACKAGE__->add_columns(qw/
     id name gid modpending sortname resolution begindate
-    enddate type quality modpending_qual
+    enddate type quality modpending_qual page
 /);
 __PACKAGE__->set_primary_key('id');
 
@@ -48,6 +48,15 @@ sub end_date_label
 {
     my $self = shift;
     return $artist_type_names{$self->type}->[2];
+}
+
+sub merge_into {
+    my ($self, $destination) = @_;
+
+    $self->aliases->update({ ref => $destination->id });
+    $self->releases->update({ artist => $destination->id });
+
+    $self->delete;
 }
 
 1;

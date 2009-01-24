@@ -11,7 +11,7 @@ __PACKAGE__->load_components(qw/ PK::Auto Core /);
 __PACKAGE__->table('album');
 __PACKAGE__->add_columns(qw/
     id name gid modpending quality modpending_qual modpending_lang
-    artist attributes language script
+    artist attributes language script page
 /);
 __PACKAGE__->set_primary_key('id');
 
