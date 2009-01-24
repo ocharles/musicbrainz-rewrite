@@ -88,4 +88,10 @@ sub release_status_name
     return exists $album_attribute_mapping{$release_status} ? $album_attribute_mapping{$release_status}->[0] : 'Unknown';
 }
 
+sub annotations {
+    my ($self) = @_;
+    my $schema = $self->result_source->schema;
+    $schema->resultset('Annotation')->for_release($self);
+}
+
 1;

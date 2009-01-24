@@ -15,4 +15,10 @@ __PACKAGE__->set_primary_key('id');
 __PACKAGE__->belongs_to('artist' => 'MusicBrainz::Schema::Result::Artist');
 __PACKAGE__->has_many('track_releases' => 'MusicBrainz::Schema::Result::ReleaseTrack');
 
+sub annotations {
+    my ($self) = @_;
+    my $schema = $self->result_source->schema;
+    $schema->resultset('Annotation')->for_track($self);
+}
+
 1;
