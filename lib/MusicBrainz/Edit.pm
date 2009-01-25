@@ -170,11 +170,18 @@ sub _new_edit {
     return $edit;
 }
 
+sub _serialize {
+    my ($self, $what) = @_;
+    return ref $what eq 'HASH'
+        ? map { $_ . "=" . $what->{$_} } keys %$what
+        : $what;
+}
+
 sub insert {
     my $self = shift;
 
-    $self->edit->newvalue($self->new_value);
-    $self->edit->prevvalue($self->previous_value);
+    $self->edit->newvalue($self->_serialize($self->new_value));
+    $self->edit->prevvalue($self->_serialize($self->previous_value));
     $self->edit->rowid($self->row_id);
     $self->edit->status($STATUS_OPEN);
     $self->edit->expiretime(DateTime->now + DateTime::Duration->new(days => 7));
