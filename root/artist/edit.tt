@@ -1,0 +1,3 @@
+[%- WRAPPER 'artist/layout.tt' title="Edit $artist.name" -%]
+    [%- INCLUDE 'artist/form.tt' -%]
+[%- END -%]

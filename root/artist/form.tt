@@ -1,0 +1,7 @@
+[%- WRAPPER 'forms/form.tt' %]
+    [%- WRAPPER 'comp/box.tt' header="Edit $artist.name" %]
+        [%- INCLUDE 'forms/generic/row.tt' field=form.name label='Name:' -%]
+        [%- INCLUDE 'forms/generic/row.tt' field=form.sortname label='Sort name:' -%]
+        [%- INCLUDE 'forms/submit.tt' label='Edit Artist' -%]
+    [%- END -%]
+[%- END -%]

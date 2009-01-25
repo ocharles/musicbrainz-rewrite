@@ -41,13 +41,13 @@ sub on_approval {
 
 sub new_value {
     my $self = shift;
-    my @new = map { "$_ = " . $self->$_ } $self->_determine_changed_fields;
+    my @new = map { "$_=" . $self->$_ } $self->_determine_changed_fields;
     return join "\n", @new;
 }
 
 sub previous_value {
     my $self = shift;
-    my @new = map { "$_ = " . $self->artist->$_ } $self->_determine_changed_fields;
+    my @new = map { "$_=" . $self->artist->$_ } $self->_determine_changed_fields;
     return join "\n", @new;
 }
 
