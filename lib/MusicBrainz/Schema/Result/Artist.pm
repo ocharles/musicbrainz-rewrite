@@ -4,6 +4,7 @@ use Moose;
 extends 'DBIx::Class', 'Moose::Object';
 with 'MusicBrainz::Role::Quality';
 
+use Carp;
 use Data::UUID;
 use Readonly;
 
@@ -64,11 +65,15 @@ sub merge_into {
     my ($self, $destination) = @_;
 
     my $d_id = $destination->id;
-    $self->aliases->update({ ref => $d_id });
-    $self->releases->update({ artist => $d_id });
-    $self->annotations->update({ rowid => $d_id });
+    my $s_id = $self->id;
 
-    $self->delete;
+    $self->result_source->schema->txn_do(sub {
+        $self->aliases->update({ ref => $d_id });
+        $self->releases->update({ artist => $d_id });
+        $self->annotations->update({ rowid => $d_id });
+        $self->delete;
+    });
+
     return $destination;
 }
 
